@@ -5,7 +5,7 @@ let initialState={
   upcomingMovies:{},
   genreList:{},
   loading:true,
-  searchMovie:null,
+  searchMovie:{},
 }
 
 const movieSlice=createSlice({

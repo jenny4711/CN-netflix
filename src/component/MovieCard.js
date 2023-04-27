@@ -5,14 +5,14 @@ import { useSelector,useDispatch } from 'react-redux';
 import { movieAction } from '../redux/actions/movieAction';
 import { useNavigate } from 'react-router-dom';
 export const MovieCard = ({item}) => {
-  const {genreList,searchMovie}=useSelector(state=>state.movies)
+  const {genreList}=useSelector(state=>state.movies)
 
   
  const navigate=useNavigate()
- const dispatch=useDispatch()
+ 
   const clickCard=(e)=>{
     e.preventDefault()
-    dispatch(movieAction.searchMovie(item.id))
+   
     navigate(`/movieDetail/:${item.id}`)
   }
  

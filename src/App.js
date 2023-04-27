@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import React,{useState} from'react'
 import './App.css';
 import { Route ,Routes} from 'react-router-dom';
 import Movies from './page/Movies';
@@ -6,7 +6,7 @@ import Home from './page/Home';
 import MovieDetail from './page/MovieDetail';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navb from './component/Navb';
-
+import { useSelector,useDispatch } from 'react-redux';
 // home page,movie page, detail page
 // home page banner
 // home page 3section movies (popular,top rated,upcomming)
@@ -21,6 +21,9 @@ import Navb from './component/Navb';
 // sorting, filter
 
 function App() {
+  
+ 
+ 
   return (
     <div className="App">
       <Navb/>

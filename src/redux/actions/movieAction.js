@@ -6,6 +6,7 @@ function getMovies() {
   return async (dispatch, getState) => {
     try{
       dispatch(movieActions.loadingHandler(true))
+     
       const popularMovieAPI = api.get(
         `/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
       );
@@ -57,6 +58,7 @@ function searchMovie(searchId){
   return async (dispatch,getState)=>{
     try{
       dispatch(movieActions.loadingHandler(true))
+
         const searchAPI =await api.get(
          `/movie/${searchId}?api_key=${API_KEY}&language=en-US`
        )
