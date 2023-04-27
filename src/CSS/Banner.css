@@ -1,0 +1,21 @@
+.Banner{
+  height:800px;
+  display:flex;
+  align-items: center;
+}
+.Banner-info{
+  width:40%;
+  margin-left:30px;
+  z-index: 1;
+}
+
+/* gradation */
+
+.Banner::before{
+  position:absolute;
+  left:0;
+  width:100%;
+  height:600px;
+  content:'';
+  background:linear-gradient(to right, black, transparent)
+}
