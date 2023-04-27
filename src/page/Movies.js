@@ -1,6 +1,5 @@
-import React,{useEffect}  from 'react'
-import {movieAction} from '../redux/actions/movieAction'
-import { useDispatch,useSelector } from 'react-redux'
+import React from 'react'
+
 
 
 function Movies() {
