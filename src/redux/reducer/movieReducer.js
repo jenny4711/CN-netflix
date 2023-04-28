@@ -6,6 +6,10 @@ let initialState={
   genreList:{},
   loading:true,
   searchMovie:{},
+  reviewList:{},
+  movieVideoList:{},
+  recommendationList:{},
+  banner:{},
 }
 
 const movieSlice=createSlice({
@@ -17,9 +21,23 @@ const movieSlice=createSlice({
     state.topRateMovies=action.payload.top
     state.upcomingMovies=action.payload.up
     state.genreList=action.payload.genre
+    state.banner=action.payload.banner
     state.loading=false
-    state.searchMovie=action.payload.data
+    // state.searchMovie=action.payload.search
+    // state.reviewList=action.payload.review
+    // state.movieVideoList=action.payload.MovieVideo
+    // state.recommendationList=action.payload.recommend
   
+   },
+   getSearchMovies(state,action){
+    state.loading=false
+    state.searchMovie=action.payload.search
+    state.genreList=action.payload.genre
+    state.reviewList=action.payload.review
+    state.movieVideoList=action.payload.MovieVideo
+    state.recommendationList=action.payload.recommend
+    state.movieVideoList=action.payload.movieVideo
+
    },
    loadingHandler(state,action){
     state.loading=true

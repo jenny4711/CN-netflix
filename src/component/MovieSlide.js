@@ -1,7 +1,8 @@
-import React from 'react'
+  import React from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import MovieCard from './MovieCard';
+import ClipLoader from "react-spinners/ClipLoader";
 
 const responsive = {
   superLargeDesktop: {
@@ -23,7 +24,17 @@ const responsive = {
   }
 };
 
-const MovieSlide = ({movies}) => {
+const MovieSlide = ({movies,loading}) => {
+  if(loading){
+    return <ClipLoader
+    color="#ffff"
+    loading={loading}
+  
+    size={150}
+    aria-label="Loading Spinner"
+    data-testid="loader"
+  />
+  }
 
   return (
     <div className='MovieSlide'>

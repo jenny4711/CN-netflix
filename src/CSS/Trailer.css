@@ -1,0 +1,25 @@
+.Trailer-screen{
+  display:flex;
+  justify-content: center;
+  color:black;
+  background-color: black;
+  width:50rem;
+ 
+}
+.modal-header button{
+  color:white;
+  background-color: white;
+}
+.modal-header{
+  display:flex;
+  justify-content: center;
+  background-color: black;
+  color:white;
+  width:50rem;
+
+
+}
+.modal-title{
+  margin-left: 20rem;
+}
+
