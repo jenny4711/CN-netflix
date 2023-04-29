@@ -2,13 +2,13 @@ import api from "../api";
 import { movieActions } from "../reducer/movieReducer";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-function getMovies() {
+function getMovies(page) {
   return async (dispatch, getState) => {
     try{
       dispatch(movieActions.loadingHandler(true))
      
       const popularMovieAPI = api.get(
-        `/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+        `/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
       );
   
       const topRatedAPI = api.get(
@@ -45,7 +45,7 @@ function getMovies() {
       let genre=genreList.data.genres
       let banner=bannerList[makeBanner]
     
-    
+    console.log(pop)
   
     
     
@@ -100,5 +100,13 @@ function searchMovie(searchId){
       dispatch(movieActions.getError({error}))
     }
   }
+
+ 
 }
+
+
+ 
+
+
+
 export const movieAction = { getMovies,searchMovie };

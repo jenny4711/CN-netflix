@@ -1,8 +1,10 @@
-  import React from 'react'
+  import React,{useEffect} from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import MovieCard from './MovieCard';
 import ClipLoader from "react-spinners/ClipLoader";
+import { movieAction } from '../redux/actions/movieAction'
+import { useSelector, useDispatch } from "react-redux";
 
 const responsive = {
   superLargeDesktop: {
@@ -25,6 +27,7 @@ const responsive = {
 };
 
 const MovieSlide = ({movies,loading}) => {
+
   if(loading){
     return <ClipLoader
     color="#ffff"
@@ -35,6 +38,7 @@ const MovieSlide = ({movies,loading}) => {
     data-testid="loader"
   />
   }
+
 
   return (
     <div className='MovieSlide'>

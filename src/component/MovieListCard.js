@@ -1,11 +1,11 @@
-import React from "react";
-import "../CSS/MovieCard.css";
-import Badge from "react-bootstrap/Badge";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-const MovieCard = ({ item }) => {
+import React from 'react'
+import Badge from 'react-bootstrap/Badge';
+import { useSelector,useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import '../CSS/MovieListCard.css'
+const MovieListCard = ({item}) => {
+ 
   const { genreList } = useSelector((state) => state.movies);
-
   const navigate = useNavigate();
 
   const clickCard = (e) => {
@@ -16,16 +16,17 @@ const MovieCard = ({ item }) => {
 
   return (
     <div
+    key={item.id}
       onClick={clickCard}
-      className="MovieCard"
+      className="MovieListCard"
       style={{
         backgroundImage:
           "url(" +
-          `https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item?.backdrop_path}` +
+          `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${item?.backdrop_path}` +
           ")",
       }}
     >
-      <div className="overlay">
+      <div className="MovieListCard-overlay">
         <h2>{item?.title}</h2>
         <div>
           {item?.genre_ids.map((id) => (
@@ -40,6 +41,7 @@ const MovieCard = ({ item }) => {
         </div>
       </div>
     </div>
-  );
-};
-export default MovieCard;
+  )
+}
+
+export default MovieListCard

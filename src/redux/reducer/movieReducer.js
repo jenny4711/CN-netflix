@@ -10,6 +10,7 @@ let initialState={
   movieVideoList:{},
   recommendationList:{},
   banner:{},
+  home:true,
 }
 
 const movieSlice=createSlice({
@@ -23,6 +24,7 @@ const movieSlice=createSlice({
     state.genreList=action.payload.genre
     state.banner=action.payload.banner
     state.loading=false
+  
     // state.searchMovie=action.payload.search
     // state.reviewList=action.payload.review
     // state.movieVideoList=action.payload.MovieVideo
@@ -44,7 +46,8 @@ const movieSlice=createSlice({
    },
    getError(state,action){
     state.loading=false
-   }
+   },
+   
   
 
   }
