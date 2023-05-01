@@ -79,12 +79,16 @@ function searchMovie(searchId){
 
       const getRecommendationsAPI=api.get(`/movie/${searchId}/recommendations?api_key=${API_KEY}&language=en-US&page=1`)
 
+      //const searchTitleAPI= api.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${searchId}`)
+
+  
       const [searchMovie,genreList,reviewList,movieVideoList,recommendationList]=await Promise.all([
         searchAPI,
         genreAPI,
         reviewAPI,
         getMovieVideoAPI,
         getRecommendationsAPI,
+        //searchTitleAPI,
 
       ]);
       let search=searchMovie.data
@@ -92,8 +96,9 @@ function searchMovie(searchId){
       let review=reviewList.data
       let movieVideo=movieVideoList.data.results[0]
       let recommend=recommendationList.data
+      //let searchTitle=searchByTitle.data
      
-
+    
 
       dispatch(movieActions.getSearchMovies({search,genre,review,movieVideo,recommend}))
 
@@ -104,11 +109,33 @@ function searchMovie(searchId){
   }
 
  
+
+
+
+
+
+
+
+
+
+
 }
 
 
- 
+function searchByTitle(title){
+  console.log(title,'title')
+  return async (dispatch,getState)=>{
+    try{
+      const titleAPI=await api.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${title}`)
+      let searchTitle=titleAPI.data
+      console.log(searchTitle)
+      dispatch(movieActions.searchByTitle({searchTitle}))
+    }catch(error){
+      dispatch(movieActions.getError({error}))
+    }
+  }
+ }
 
 
 
-export const movieAction = { getMovies,searchMovie };
+export const movieAction = { getMovies,searchMovie,searchByTitle };

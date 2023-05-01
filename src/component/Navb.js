@@ -1,11 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 import {Navbar,Container,Form,Button,Nav,NavDropdown,FormControl} from "react-bootstrap"
 import {Link} from 'react-router-dom'
-import MovieListCard from './MovieListCard'
+// import MovieListCard from './MovieListCard'
 import '../CSS/Navb.css'
+import { useSelector,useDispatch } from 'react-redux'
 
+import {useNavigate } from "react-router-dom"
 
 const Navb = () => {
+  const navigate=useNavigate()
+  const dispatch=useDispatch();
+  const{searchTitleList}=useSelector((state)=>state.movies)
+  console.log(searchTitleList)
+  const [keyword,setKeyword]=useState('')
+
+ const keywordHandler=(e)=>{
+  const key = e.target.value;
+  console.log(key)
+  setKeyword(key)
+ }
+
+const search=async(e)=>{
+  e.preventDefault();
+  console.log('hello')
+  navigate(`/movies/?query=${keyword}`)
+  
+
+}
+
+
+
+//   useEffect(() => {
+//  search()
+  
+  
+//   }, []);
+
 
 
   
@@ -24,14 +54,15 @@ const Navb = () => {
           <Link to='/movies' href="#action2" className='Navb-Movies'>Movies</Link>
          
         </Nav>
-        <Form className="d-flex">
+        <Form className="d-flex" >
           <Form.Control
             type="search"
             placeholder="Search"
             className="me-2"
             aria-label="Search"
+            onChange={keywordHandler}
           />
-          <Button variant="outline-danger">Search</Button>
+          <Button variant="outline-danger" onClick={(e)=>search(e)}>Search</Button>
         </Form>
       </Navbar.Collapse>
     </Container>

@@ -20,7 +20,7 @@ const pg =
 
   return (
     <div
-    key={item.id}
+    key={item.title}
       onClick={clickCard}
       className="MovieListCard"
       style={{

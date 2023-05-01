@@ -8,29 +8,56 @@ import Dropdown from "react-bootstrap/Dropdown";
 import "@lucchev/react-slider/styles.css";
 import "../CSS/Movies.css";
 import Pagination from "react-js-pagination";
-
+import { useSearchParams } from 'react-router-dom';
 import Slider from "rc-slider";
 
 import "rc-slider/assets/index.css";
 
 function Movies() {
   const dispatch = useDispatch();
-  const { popularMovies, loading, genreList,allListMovies } = useSelector(
+  const { popularMovies, loading, genreList,allListMovies ,searchTitleList} = useSelector(
     (state) => state.movies
   );
-
+  console.log(searchTitleList.results)
+const [ query,setQuery]=useSearchParams()
   const [result, setResult] = useState(popularMovies?.results);
   const [page, setPage] = useState(1);
   const [value, setValue] = useState([1990, 2023]);
   const [show, setShow] = useState(false);
-  const [filterG, setfilterG] = useState(false);
-  const [resultBtn,setResultBtn]=useState(null)
+  // const [filterG, setfilterG] = useState(false);
+  // const [resultBtn,setResultBtn]=useState(null)
+
+  const getListByTitle=()=>{
+    let titleQuery=query.get('query')||"";
+    console.log('query',titleQuery)
+
+  dispatch(movieAction.searchByTitle(titleQuery))
+  setResult(searchTitleList?.results)
+
+  }
+
+
+  const getResult =()=>{
+    if(searchTitleList){
+      return searchTitleList.results;
+    }else{
+      return popularMovies?.results;
+    }
+  }
+
+
+  
+  useEffect(() => {
+  setResult(getResult())
+   
+  }, [searchTitleList,popularMovies]);
+  
 
 
   const handlePageChange = async (page) => {
     setPage(page);
     dispatch(movieAction.getMovies(page));
-    setResult(popularMovies?.results);
+    setResult(getResult());
   };
 
   const handleRange = (e) => {
@@ -52,7 +79,7 @@ function Movies() {
   };
 
   const genreBtn=async(e,newGenre)=>{
- console.log(e,'e')
+
 
     let filterObj =popularMovies?.results.filter((item)=>{
     return item.genre_ids.includes(e)
@@ -60,7 +87,7 @@ function Movies() {
     setResult(filterObj)
 
   }
-console.log(resultBtn,'byn')
+
   const getTitle = () => {
     const sortedResult = [...popularMovies?.results].sort(function (a, b) {
       let nameA = a.title.toUpperCase();
