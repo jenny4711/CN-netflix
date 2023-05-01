@@ -117,7 +117,7 @@ function MovieDetail() {
       <div className='MovieDetail-extra'>
         <div className='MovieDetail-btns'>
         <button classname='reviewBtn' onClick={()=>setOn(on=>on === true?false:true)}>REVIEW({result?.length})</button>
-        <button className='relatedBtn' onClick={()=>setOpen(open=>open ===true?false:true)}>RELATED MOVIES({recomResult?.length})</button>
+        <button className='relatedBtn' onClick={()=>setOpen(open=>open ===true?false:true)}>RELATED MOVIES({ recomResult?.length})</button>
         </div>
        
         <div className={on?'review-all':'hide'}>

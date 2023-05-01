@@ -32,7 +32,7 @@ playerVars:{
       {values.map((v, idx) => (
         <Button key={idx} className="me-2 mb-2" onClick={() => handleShow(v)} variant='danger'>
           Watch Trailer
-          {/* {typeof v === 'string' && `below ${v.split('-')[0]}`} */}
+       
         </Button>
       ))}
       <Modal show={show} fullscreen={fullscreen} onHide={() => setShow(false)}>

@@ -1,10 +1,13 @@
 import React from 'react'
 import {Navbar,Container,Form,Button,Nav,NavDropdown,FormControl} from "react-bootstrap"
 import {Link} from 'react-router-dom'
+import MovieListCard from './MovieListCard'
 import '../CSS/Navb.css'
 
 
 const Navb = () => {
+
+
   
   return (
     <Navbar bg="dark" variant='dark' expand="lg">

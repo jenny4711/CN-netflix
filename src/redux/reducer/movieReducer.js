@@ -1,6 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit"
 let initialState={
   popularMovies:{},
+  allListMovies:{},
   topRateMovies:{},
   upcomingMovies:{},
   genreList:{},
@@ -19,6 +20,7 @@ const movieSlice=createSlice({
   reducers:{
    getAllmovies(state,action){
     state.popularMovies=action.payload.pop
+    state.allListMovies=action.payload.all
     state.topRateMovies=action.payload.top
     state.upcomingMovies=action.payload.up
     state.genreList=action.payload.genre

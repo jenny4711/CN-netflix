@@ -10,6 +10,7 @@ function getMovies(page) {
       const popularMovieAPI = api.get(
         `/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
       );
+      const allListAPI=api.get(`/movie/popular?api_key=${API_KEY}&language=en-US`);
   
       const topRatedAPI = api.get(
         `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
@@ -22,11 +23,11 @@ function getMovies(page) {
       const genreAPI = api.get(
         `/genre/movie/list?api_key=${API_KEY}&language=en-US`
       );
-      // const searchAPI =api.get(
-      //   `/movie/${searchId}?api_key=${API_KEY}&language=en-US`
-      // )
-      const  [popularMovies, topRatedMovies, upcomingMovies,genreList ] = await Promise.all([
+      
+
+      const  [popularMovies, allListMovies ,topRatedMovies, upcomingMovies,genreList ] = await Promise.all([
         popularMovieAPI,
+        allListAPI,
         topRatedAPI,
         upcomingAPI,
         genreAPI,
@@ -36,20 +37,21 @@ function getMovies(page) {
 
       let bannerList=popularMovies.data.results
       const makeBanner=Math.floor(Math.random()*bannerList.length)
-      console.log(makeBanner)
+     
      
     
       let pop=popularMovies.data
+      let all=allListMovies.data
       let top=topRatedMovies.data
       let up=upcomingMovies.data
       let genre=genreList.data.genres
       let banner=bannerList[makeBanner]
     
-    console.log(pop)
+
   
     
     
-  dispatch(movieActions.getAllmovies({pop,top,up,genre,banner}))
+  dispatch(movieActions.getAllmovies({pop,all,top,up,genre,banner}))
 
     }catch(error){
      dispatch(movieActions.getError({error}))

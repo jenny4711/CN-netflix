@@ -1,0 +1,47 @@
+/* Range.css */
+.react-range {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  background-color: black;
+}
+
+.react-range__track {
+  width: 100%;
+  height: 5px;
+  border-radius: 4px;
+  background: #ccc;
+}
+
+.react-range__track--active {
+  background: linear-gradient(to right, #ccc, #2cb1ba, #ccc);
+}
+
+.react-range__thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 5px 0px;
+}
+
+.react-range__thumb:focus {
+  outline: none;
+}
+
+.react-range__thumb:active {
+  background: #2cb1ba;
+}
+
+.react-range__thumb--disabled {
+  background: #ccc;
+  border-color: #ccc;
+}
+
+.react-range__label {
+  position: absolute;
+  top: -30px;
+  color: #000;
+  font-size: 12px;
+}

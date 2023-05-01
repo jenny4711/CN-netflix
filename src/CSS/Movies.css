@@ -35,3 +35,42 @@ justify-content: center;
 }
 
 .pagination a:hover:not(.active){background-color:red ;color:black;}
+.slider{
+  background-color: black;
+  width:10rem;
+}
+.dropdown-menu{
+  background-color:black;
+  width:10rem;
+  padding:2rem;
+
+  color:white
+}
+.hide{
+  display:none;
+}
+.show{
+  display:flex;
+  justify-content: center;
+  background-color: black;
+  margin-left: 1rem;
+  margin-top: 2rem;
+  color:white;
+
+  width:12rem;
+
+}
+.genreBtn{
+  background-color: red;
+  padding:0.5rem;
+  width:8rem;
+  margin-bottom: 1rem;
+  border-radius: 13px;
+  background: rgb(240,37,8);
+background: linear-gradient(90deg, rgba(240,37,8,1) 1%, rgba(18,17,17,1) 85%);
+}
+.Movies-btn{
+  display:flex;
+margin-top:1rem;
+width:25rem;
+}
