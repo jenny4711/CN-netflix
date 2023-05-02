@@ -27,7 +27,7 @@ function Movies({setNavSearch}) {
   const [genre,setGenre]=useState(false)
    setNavSearch(false)
 
-
+// search by title
   const getListByTitle = () => {
     let titleQuery = query.get("query") || "";
     console.log("query", titleQuery);

@@ -20,8 +20,11 @@
   
 }
 @media only screen and (max-width:768px){
+  .MovieListCard{
+    background-size:350px 400px;
+  }
   .MovieListCard,.MovieListCard-info{
-    width:200px;
+    width:350px;
     height:400px;
   }
 }
