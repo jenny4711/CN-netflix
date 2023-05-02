@@ -71,6 +71,8 @@ function Movies({setNavSearch}) {
     getResult();
   }, [searchTitleList]);
 
+  // pagination
+
   const handlePageChange = async (page) => {
     console.log(page)
     setPage(page);
@@ -78,6 +80,8 @@ function Movies({setNavSearch}) {
     dispatch(movieAction.getMovies(page));
     setResult(popularMovies?.results)
   };
+
+  // filter
 
   const handleRange = (e) => {
     setShow(true);
@@ -188,7 +192,7 @@ setGenre(true)
               <Dropdown.Item href="#/action-1" onClick={handleRange}>
                 Filter By Years
               </Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Filter By Genre</Dropdown.Item>
+              <Dropdown.Item href="#/action-2" onClick={handleGenre}>Filter By Genre</Dropdown.Item>
               <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
