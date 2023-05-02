@@ -27,35 +27,33 @@ const [ query,setQuery]=useSearchParams()
   // const [filterG, setfilterG] = useState(false);
   // const [resultBtn,setResultBtn]=useState(null)
 
-  // const getListByTitle=()=>{
-  //   let titleQuery=query.get('query')||"";
-  //   console.log('query',titleQuery)
+  const getListByTitle=()=>{
+    let titleQuery=query.get('query')||"";
+    console.log('query',titleQuery)
 
-  // dispatch(movieAction.searchByTitle(titleQuery))
-  // setResult(searchTitleList?.results)
+  dispatch(movieAction.searchByTitle(titleQuery))
+  setResult(searchTitleList?.results)
 
-  // }
+  }
 
+  useEffect(()=>{
+    getListByTitle()
+  },[])
 
-  // const getResult =()=>{
-  //   if(searchTitleList){
-  //     return searchTitleList.results;
-  //   }else{
-  //     return popularMovies?.results;
-  //   }
-  // }
+  const getResult =()=>{
+    let searchList=searchTitleList.results.length
+    console.log(searchList === 0,'working')
+    if(searchList === 0){
+      return setResult (popularMovies?.results);
+     
+    }else{
+      return setResult (searchTitleList.results);
+    }
+  }
 
-  // useEffect(() => {
-  //   getListByTitle();
-  // }, [ query]);
-
-  
-  // useEffect(() => {
-  // setResult(getResult())
-   
-  // }, [searchTitleList,popularMovies]);
-  
-
+useEffect(()=>{
+  getResult()
+},[searchTitleList])
 
   const handlePageChange = async (page) => {
     setPage(page);
