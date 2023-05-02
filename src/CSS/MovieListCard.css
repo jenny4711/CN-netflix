@@ -25,3 +25,12 @@
     height:400px;
   }
 }
+.empty{
+  display:flex;
+  width:300px;
+  height:400px;
+  margin: 2rem;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}

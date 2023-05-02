@@ -19,8 +19,8 @@ const pg =
   };
 
   return (
-    
-    <div
+    <>
+    {item.backdrop_path === null?<div className='empty'><img width={100} src='https://www.edigitalagency.com.au/wp-content/uploads/Netflix-logo-red-black-png.png'/></div> :<div
     key={item?.title}
       onClick={clickCard}
       className="MovieListCard"
@@ -51,7 +51,8 @@ const pg =
           <span>Release Date: {item?.release_date}</span>
         </div>
       </div>
-    </div>
+    </div>}
+    </>
    
   )
 }
