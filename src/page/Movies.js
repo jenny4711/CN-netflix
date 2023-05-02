@@ -24,6 +24,7 @@ function Movies({setNavSearch}) {
   const [value, setValue] = useState([1990, 2023]);
   const [show, setShow] = useState(false);
   const [keyword,setKeyword]=useState('')
+  const [genre,setGenre]=useState(false)
    setNavSearch(false)
 
 
@@ -81,6 +82,10 @@ function Movies({setNavSearch}) {
   const handleRange = (e) => {
     setShow(true);
   };
+
+  const handleGenre =(e)=>{
+setGenre(true)
+  }
 
   const handleSliderChange = async (newValue) => {
     setValue(newValue);
@@ -183,7 +188,7 @@ function Movies({setNavSearch}) {
               <Dropdown.Item href="#/action-1" onClick={handleRange}>
                 Filter By Years
               </Dropdown.Item>
-              <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+              <Dropdown.Item href="#/action-2">Filter By Genre</Dropdown.Item>
               <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -199,9 +204,9 @@ function Movies({setNavSearch}) {
               ariaLabelledByGroupForHandles={["GroupForHandle"]}
               tabIndex={[0, 0]}
               onChange={handleSliderChange}
-            />
+            /> 
           </div>
-          <div className="Movies-btn">
+          <div className={genre ? "Movies-btn" : "hide"}>
             <Container>
               <Row>
                 {genreList?.map((item) => (
