@@ -52,6 +52,7 @@ function Movies() {
   }, [searchTitleList]);
 
   const handlePageChange = async (page) => {
+    console.log(page)
     setPage(page);
     dispatch(movieAction.getMovies(page));
   };

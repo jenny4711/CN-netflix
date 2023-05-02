@@ -48,7 +48,7 @@ function getMovies(page) {
       let banner=bannerList[makeBanner]
     
 
-  
+  console.log(pop)
     
     
   dispatch(movieActions.getAllmovies({pop,all,top,up,genre,banner}))
