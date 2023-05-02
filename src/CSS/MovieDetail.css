@@ -82,6 +82,20 @@
  
    border-bottom: 2px solid white;
 }
+@media only screen and (max-width:768px){
+  .MovieDetail{
+    height:60rem;
+    width:300px;
+  }
+  .review-all,.recom-all{
+    display:flex;
+    flex-direction: column;
+    width:300px;
+   
+  }
+  
+
+}
 
 
 

@@ -19,3 +19,9 @@
   margin-top:1rem;
   
 }
+@media only screen and (max-width:768px){
+  .MovieListCard,.MovieListCard-info{
+    width:200px;
+    height:400px;
+  }
+}

@@ -22,4 +22,17 @@
 .modal-title{
   margin-left: 20rem;
 }
+@media only screen and (max-width:768px){
+  .Trailer-screen{
+    width:100%;
+    height:50%;
+  }
+  .modal-content, .modal-header{
+    width:100%;
+   
+    background-color: black;
+  }
+ 
+}
+
 
