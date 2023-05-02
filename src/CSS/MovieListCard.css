@@ -21,12 +21,16 @@
 }
 @media only screen and (max-width:768px){
   .MovieListCard{
-    background-size:350px 400px;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+    background-size:340px 480px;
   }
   .MovieListCard,.MovieListCard-info{
     width:350px;
     height:400px;
   }
+
 }
 .empty{
   display:flex;

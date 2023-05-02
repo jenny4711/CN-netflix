@@ -234,7 +234,7 @@ setGenre(true)
         
             type="search"
             placeholder="Search"
-            className="me-2"
+            className="me-2 mv-search"
             aria-label="Search"
             onChange={keywordHandler}
           />

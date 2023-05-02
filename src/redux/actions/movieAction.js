@@ -2,7 +2,7 @@ import api from "../api";
 import { movieActions } from "../reducer/movieReducer";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-function getMovies(page) {
+function getMovies(page,lang) {
   return async (dispatch, getState) => {
     try{
       dispatch(movieActions.loadingHandler(true))

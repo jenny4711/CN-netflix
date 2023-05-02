@@ -82,7 +82,29 @@ width:25rem;
   margin-bottom:5%;
 }
 @media only screen and (max-width:768px){
+  .Movies{
+    flex-direction: column;
+    width:100vw
+  }
   .Movies-form{
     width:110px;
   }
+  .dropdown-toggle{
+    width:6rem;
+  }
+  .container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .movies-form1 .mv-search{
+    width:13rem;
+    
+  }
+  .movies-form1{
+    width:10rem;
+    display:flex;
+    justify-content: center;
+  }
+ 
 }
