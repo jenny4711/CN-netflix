@@ -54,7 +54,9 @@ function Movies() {
   const handlePageChange = async (page) => {
     console.log(page)
     setPage(page);
+
     dispatch(movieAction.getMovies(page));
+    setResult(popularMovies?.results)
   };
 
   const handleRange = (e) => {
