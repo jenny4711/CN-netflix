@@ -19,8 +19,9 @@ const pg =
   };
 
   return (
+    
     <div
-    key={item.title}
+    key={item?.title}
       onClick={clickCard}
       className="MovieListCard"
       style={{
@@ -51,6 +52,7 @@ const pg =
         </div>
       </div>
     </div>
+   
   )
 }
 

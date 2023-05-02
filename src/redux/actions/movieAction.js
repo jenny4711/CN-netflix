@@ -108,17 +108,6 @@ function searchMovie(searchId){
     }
   }
 
- 
-
-
-
-
-
-
-
-
-
-
 }
 
 
@@ -128,7 +117,7 @@ function searchByTitle(title){
     try{
       const titleAPI=await api.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${title}`)
       let searchTitle=titleAPI.data
-      console.log(searchTitle)
+      console.log(searchTitle,'title')
       dispatch(movieActions.searchByTitle({searchTitle}))
     }catch(error){
       dispatch(movieActions.getError({error}))

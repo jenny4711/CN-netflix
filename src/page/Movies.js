@@ -202,6 +202,7 @@ function Movies() {
         <Container>
           <Row>
             {result?.map((item) => (
+             
               <Col lg={4} key={item.id}>
                 <MovieListCard item={item} />
               </Col>
