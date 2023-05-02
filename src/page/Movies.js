@@ -47,7 +47,7 @@ const [ query,setQuery]=useSearchParams()
 
   useEffect(() => {
     getListByTitle();
-  }, [dispatch, query]);
+  }, [ query]);
 
   
   useEffect(() => {
