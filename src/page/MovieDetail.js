@@ -12,7 +12,7 @@ import Trailer from './Trailer';
 
 
 
-function MovieDetail() {
+function MovieDetail({setNavSearch}) {
   let { id } = useParams();
   const dispatch = useDispatch();
   const [on,setOn]=useState(false);
@@ -25,7 +25,7 @@ function MovieDetail() {
     recommendationList,
     movieVideoList,
   } = useSelector((state) => state.movies);
-
+  setNavSearch(false)
  
 
   const under18 =

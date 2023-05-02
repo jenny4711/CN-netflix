@@ -10,10 +10,10 @@ import "../CSS/Movies.css";
 import Pagination from "react-js-pagination";
 import { useSearchParams } from "react-router-dom";
 import Slider from "rc-slider";
-
+import {Navbar,Form,Button,Nav,NavDropdown,FormControl} from "react-bootstrap"
 import "rc-slider/assets/index.css";
 
-function Movies() {
+function Movies({setNavSearch}) {
   const dispatch = useDispatch();
   const { popularMovies, loading, genreList, searchTitleList } =
     useSelector((state) => state.movies);
@@ -23,6 +23,8 @@ function Movies() {
   const [page, setPage] = useState(1);
   const [value, setValue] = useState([1990, 2023]);
   const [show, setShow] = useState(false);
+  const [keyword,setKeyword]=useState('')
+   setNavSearch(false)
 
 
   const getListByTitle = () => {
@@ -32,6 +34,23 @@ function Movies() {
     dispatch(movieAction.searchByTitle(titleQuery));
     setResult(searchTitleList?.results);
   };
+
+  const keywordHandler=(e)=>{
+    e.preventDefault()
+   
+    
+      let title=e.target.value
+      console.log(title)
+      setKeyword(title)
+     
+    
+  }
+
+  const search=(e)=>{
+    console.log(e)
+    dispatch(movieAction.searchByTitle(keyword));
+
+  }
 
   useEffect(() => {
     getListByTitle();
@@ -200,6 +219,18 @@ function Movies() {
           </div>
         </div>
         <Container>
+          <h3>Movie's List</h3>
+        <Form className="d-flex movies-form1" >
+          <Form.Control
+        
+            type="search"
+            placeholder="Search"
+            className="me-2"
+            aria-label="Search"
+            onChange={keywordHandler}
+          />
+          <Button variant="outline-danger" onClick={(e)=>search(e)}>Search</Button>
+        </Form>
           <Row>
             {result?.map((item) => (
              

@@ -5,10 +5,10 @@ import Banner from '../component/Banner'
 import MovieSlide from '../component/MovieSlide'
 import ClipLoader from "react-spinners/ClipLoader";
 
-function Home() {
+function Home({setNavSearch}) {
   const dispatch = useDispatch()
  const {popularMovies,topRateMovies,upcomingMovies,loading,banner}=useSelector(state=>state.movies)
-
+ setNavSearch(true)
   useEffect(()=>{
 dispatch(movieAction.getMovies())
   },[])

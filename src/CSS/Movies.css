@@ -74,6 +74,13 @@ background: linear-gradient(90deg, rgba(240,37,8,1) 1%, rgba(18,17,17,1) 85%);
 margin-top:1rem;
 width:25rem;
 }
+
+.movies-form1{
+  width:25rem;
+  margin-left:30%;
+  margin-top:5%;
+  margin-bottom:5%;
+}
 @media only screen and (max-width:768px){
   .Movies-form{
     width:110px;

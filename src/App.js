@@ -21,16 +21,16 @@ import { useSelector,useDispatch } from 'react-redux';
 // sorting, filter
 
 function App() {
-  
+  const [navSearch,setNavSearch]=useState(true)
  
  
   return (
     <div className="App">
-      <Navb/>
+      <Navb navSearch={navSearch}/>
       <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/movies' element={<Movies/>}/>
-        <Route path='/movieDetail/:id' element={<MovieDetail/>}/>
+        <Route path='/' element={<Home setNavSearch={setNavSearch} />}/>
+        <Route path='/movies' element={<Movies setNavSearch={setNavSearch}/>}/>
+        <Route path='/movieDetail/:id' element={<MovieDetail setNavSearch={setNavSearch}/>}/>
       </Routes>
     </div>
   );

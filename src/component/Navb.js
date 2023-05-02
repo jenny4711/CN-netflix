@@ -7,7 +7,7 @@ import { useSelector,useDispatch } from 'react-redux'
 
 import {useNavigate } from "react-router-dom"
 
-const Navb = () => {
+const Navb = ({navSearch}) => {
   const navigate=useNavigate()
   const dispatch=useDispatch();
   const{searchTitleList}=useSelector((state)=>state.movies)
@@ -54,7 +54,7 @@ const search=async(e)=>{
           <Link to='/movies' href="#action2" className='Navb-Movies'>Movies</Link>
          
         </Nav>
-        <Form className="d-flex" >
+        <Form className={navSearch?"d-flex":"hide"} >
           <Form.Control
             type="search"
             placeholder="Search"
