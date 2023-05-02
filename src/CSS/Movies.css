@@ -106,10 +106,14 @@ width:25rem;
     display:flex;
     justify-content: center;
   }
-  .Movies-drop1,.Movies-dropF{
+  .Movies-drop1{
     margin-top:2rem;
-    margin-left:2rem;
-    margin-bottom:1rem;
+    margin-left:1rem;
+   
+  }
+  .Movies-dropF{
+    margin-left:1rem;
+    margin-bottom:1.5rem;
   }
  
 }
