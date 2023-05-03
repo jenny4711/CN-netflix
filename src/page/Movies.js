@@ -33,7 +33,7 @@ function Movies({ setNavSearch,lang}) {
   // search by title in nav
   const getListByTitle = () => {
     let titleQuery = query.get("query") || "";
-    console.log("query", titleQuery);
+ 
 
     dispatch(movieAction.searchByTitle(titleQuery,lang));
     setResult(searchTitleList?.results);
@@ -55,7 +55,8 @@ function Movies({ setNavSearch,lang}) {
 
   useEffect(() => {
     getListByTitle();
-  }, []);
+    search()
+  }, [lang]);
 
   const getResult = () => {
     let searchList = searchTitleList && searchTitleList?.results;
@@ -81,6 +82,10 @@ function Movies({ setNavSearch,lang}) {
     setResult(popularMovies?.results);
   };
 
+  useEffect(()=>{
+    handlePageChange(page)
+  },[page])
+
   // filter
 
   const handleRange = (e) => {
@@ -94,7 +99,7 @@ function Movies({ setNavSearch,lang}) {
   const handleSliderChange = async (newValue) => {
     setValue(newValue);
 
-    let filterObj = result.filter((item) => {
+    let filterObj = [...result].filter((item) => {
       if (item.release_date) {
         return new Date(item.release_date).getFullYear() > newValue;
       } else {

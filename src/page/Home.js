@@ -14,7 +14,7 @@ function Home({setNavSearch,lang}) {
 
 dispatch(movieAction.getMovies(null,lang))
 
-  },[])
+  },[lang])
 
   if(loading){
     return <ClipLoader

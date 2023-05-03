@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Navbar, Container, Form, Button, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../CSS/Navb.css";
@@ -10,7 +10,11 @@ const Navb = ({ navSearch,setLang,lang}) => {
  
   const navigate = useNavigate();
   const [keyword, setKeyword] = useState("");
-  const changeLang=()=>setLang((lang)=>lang===`ko-KR`? `en-US`:`ko-KR`)
+  const changeLang=(e)=> setLang((lang)=>lang===`ko-KR`? `en-US`:`ko-KR`)
+  
+  useEffect(()=>{
+changeLang()
+  },[setLang])
  
   const keywordHandler = (e) => {
     const key = e.target.value;
@@ -38,7 +42,7 @@ const Navb = ({ navSearch,setLang,lang}) => {
         <Navbar.Toggle aria-controls="navbarScroll" />
         
         <Navbar.Collapse id="navbarScroll">
-        <button className='Navb-lang' onClick={changeLang}>{lang === `ko-KR`?'KO':'US'}</button>
+        <button className='Navb-lang' onClick={(e)=>changeLang(e)}>{lang === `ko-KR`?'KO':'US'}</button>
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}

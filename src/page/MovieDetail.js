@@ -28,7 +28,7 @@ function MovieDetail({ setNavSearch,lang}) {
   let result = reviewList.results;
   let nameOfGenres = searchMovie.genres;
   let recomResult = recommendationList.results;
-
+  let videoKey=movieVideoList?.key
   useEffect(() => {
     function getList() {
       dispatch(movieAction.searchMovie(sp,lang));
@@ -37,8 +37,9 @@ function MovieDetail({ setNavSearch,lang}) {
     getList();
   }, [id,lang]);
 
+
   return (
-    <div key={searchMovie.id} className="MovieDetail-App">
+    <div  className="MovieDetail-App">
       <div className="MovieDetail">
         <span className="MovieDetail-img">
           <img
@@ -92,7 +93,7 @@ function MovieDetail({ setNavSearch,lang}) {
             </p>
           </div>
           <div className="MovieDetail-trailer">
-            <Trailer videoId={movieVideoList.key} />
+            <Trailer videoId={videoKey} />
           </div>
         </div>
       </div>

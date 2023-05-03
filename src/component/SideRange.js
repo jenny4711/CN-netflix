@@ -18,14 +18,14 @@ export default  ()=>({min,max,value,pushable,allowCross, ariaLabelGroupForHandle
     min={min}
     max={max}
     value={value}
-    defaultValue={[1990, 2022]}
-    allowCross={allowCross}
-    pushable={pushable}
-    ariaLabelGroupForHandles={ariaLabelGroupForHandles}
-    ariaLabelledByGroupForHandles={ariaLabelledByGroupForHandles}
-    tabIndex={tabIndex}
-    tipFormatter={value => `${value}%`}
-    count={1}
+     defaultValue={[1990, 2022]}
+     allowCross={allowCross}
+     pushable={pushable}
+     ariaLabelGroupForHandles={ariaLabelGroupForHandles}
+     ariaLabelledByGroupForHandles={ariaLabelledByGroupForHandles}
+     tabIndex={tabIndex}
+     tipFormatter={value => `${value}%`}
+     count={1}
     onChange={onChange}
     />
 
