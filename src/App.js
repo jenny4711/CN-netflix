@@ -8,20 +8,23 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Navb from "./component/Navb";
 
 function App() {
+ 
   const [navSearch, setNavSearch] = useState(true);
+  const[lang,setLang]=useState(`ko-KR`)
+  console.log(lang)
 
   return (
     <div className="App">
-      <Navb navSearch={navSearch} />
+      <Navb navSearch={navSearch} setLang={setLang} lang={lang} />
       <Routes>
-        <Route path="/" element={<Home setNavSearch={setNavSearch} />} />
+        <Route path="/" element={<Home setNavSearch={setNavSearch} lang={lang}  />} />
         <Route
           path="/movies"
-          element={<Movies setNavSearch={setNavSearch} />}
+          element={<Movies setNavSearch={setNavSearch} lang={lang} />}
         />
         <Route
           path="/movieDetail/:id"
-          element={<MovieDetail setNavSearch={setNavSearch} />}
+          element={<MovieDetail setNavSearch={setNavSearch} lang={lang} />}
         />
       </Routes>
     </div>

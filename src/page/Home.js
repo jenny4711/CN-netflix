@@ -1,16 +1,19 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import { movieAction } from '../redux/actions/movieAction'
 import { useDispatch,useSelector } from 'react-redux'
 import Banner from '../component/Banner'
 import MovieSlide from '../component/MovieSlide'
 import ClipLoader from "react-spinners/ClipLoader";
 
-function Home({setNavSearch}) {
+function Home({setNavSearch,lang}) {
   const dispatch = useDispatch()
  const {popularMovies,topRateMovies,upcomingMovies,loading,banner}=useSelector(state=>state.movies)
+
  setNavSearch(true)
   useEffect(()=>{
-dispatch(movieAction.getMovies())
+
+dispatch(movieAction.getMovies(null,lang))
+
   },[])
 
   if(loading){

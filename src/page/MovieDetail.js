@@ -9,7 +9,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import "../CSS/MovieDetail.css";
 import Trailer from "./Trailer";
 
-function MovieDetail({ setNavSearch }) {
+function MovieDetail({ setNavSearch}) {
   let { id } = useParams();
   const dispatch = useDispatch();
   const [on, setOn] = useState(false);

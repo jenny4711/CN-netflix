@@ -1,27 +1,40 @@
 import api from "../api";
 import { movieActions } from "../reducer/movieReducer";
 
+// Eng=en-US
+// KOR-ko-KR
+
 const API_KEY = process.env.REACT_APP_API_KEY;
 function getMovies(page,lang) {
+
   return async (dispatch, getState) => {
     try{
+     
+    
+    
+  
+ 
       dispatch(movieActions.loadingHandler(true))
      
+   
+     
+     console.log(lang,'test')
       const popularMovieAPI = api.get(
-        `/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
+        `/movie/popular?api_key=${API_KEY}&language=${lang}&page=${page}`
       );
-      const allListAPI=api.get(`/movie/popular?api_key=${API_KEY}&language=en-US`);
+     
+      const allListAPI=api.get(`/movie/popular?api_key=${API_KEY}&language=${lang}`);
   
       const topRatedAPI = api.get(
-        `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
+        `/movie/top_rated?api_key=${API_KEY}&language=${lang}&page=1`
       );
   
       const upcomingAPI = api.get(
-        `/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
+        `/movie/upcoming?api_key=${API_KEY}&language=${lang}&page=1`
       );
 
       const genreAPI = api.get(
-        `/genre/movie/list?api_key=${API_KEY}&language=en-US`
+        `/genre/movie/list?api_key=${API_KEY}&language=${lang}`
       );
       
 
@@ -39,19 +52,19 @@ function getMovies(page,lang) {
       const makeBanner=Math.floor(Math.random()*bannerList.length)
      
      
-    
+     
       let pop=popularMovies.data
       let all=allListMovies.data
       let top=topRatedMovies.data
       let up=upcomingMovies.data
       let genre=genreList.data.genres
       let banner=bannerList[makeBanner]
-    
+      let bun= lang
 
-  console.log(pop)
+      console.log(bun,'bun')
     
     
-  dispatch(movieActions.getAllmovies({pop,all,top,up,genre,banner}))
+  dispatch(movieActions.getAllmovies({pop,all,top,up,genre,banner,bun}))
 
     }catch(error){
      dispatch(movieActions.getError({error}))
@@ -64,20 +77,20 @@ function getMovies(page,lang) {
 
 // error note - got error 404 . api address shows 20%20%20%... found out it is for space by chat gpt. fixed to  make api one line..
 
-function searchMovie(searchId){
+function searchMovie(searchId,lang){
 
   return async (dispatch,getState)=>{
     try{
       dispatch(movieActions.loadingHandler(true))
-      const searchAPI = api.get(`/movie/${searchId}?api_key=${API_KEY}&language=en-US`);
+      const searchAPI = api.get(`/movie/${searchId}?api_key=${API_KEY}&language=${lang}`);
 
-      const genreAPI = api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`);    
+      const genreAPI = api.get(`/genre/movie/list?api_key=${API_KEY}&language=${lang}`);    
             
-      const reviewAPI= api.get(`/movie/${searchId}/reviews?api_key=${API_KEY}&language=en-US&page=1`);
+      const reviewAPI= api.get(`/movie/${searchId}/reviews?api_key=${API_KEY}&language=${lang}&page=1`);
       
-      const getMovieVideoAPI=api.get(`/movie/${searchId}/videos?api_key=${API_KEY}&language=en-US`);
+      const getMovieVideoAPI=api.get(`/movie/${searchId}/videos?api_key=${API_KEY}&language=${lang}`);
 
-      const getRecommendationsAPI=api.get(`/movie/${searchId}/recommendations?api_key=${API_KEY}&language=en-US&page=1`)
+      const getRecommendationsAPI=api.get(`/movie/${searchId}/recommendations?api_key=${API_KEY}&language=${lang}&page=1`)
 
       //const searchTitleAPI= api.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${searchId}`)
 
@@ -111,11 +124,11 @@ function searchMovie(searchId){
 }
 
 
-function searchByTitle(title){
+function searchByTitle(title,lang){
   console.log(title,'title')
   return async (dispatch,getState)=>{
     try{
-      const titleAPI=await api.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${title}`)
+      const titleAPI=await api.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=${lang}&page=1&include_adult=false&query=${title}`)
       let searchTitle=titleAPI.data
       console.log(searchTitle,'title')
       dispatch(movieActions.searchByTitle({searchTitle}))
@@ -125,6 +138,8 @@ function searchByTitle(title){
   }
  }
 
+ 
 
 
-export const movieAction = { getMovies,searchMovie,searchByTitle };
+
+export const movieAction = { getMovies,searchMovie,searchByTitle};

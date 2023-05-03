@@ -6,9 +6,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-const Navb = ({ navSearch }) => {
+const Navb = ({ navSearch,setLang,lang}) => {
+ 
   const navigate = useNavigate();
   const [keyword, setKeyword] = useState("");
+  const changeLang=()=>setLang((lang)=>lang===`ko-KR`? `en-US`:`ko-KR`)
+ 
   const keywordHandler = (e) => {
     const key = e.target.value;
 
@@ -23,6 +26,7 @@ const Navb = ({ navSearch }) => {
 
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
+     
       <Container fluid>
         <Navbar.Brand href="#">
           <img
@@ -30,19 +34,25 @@ const Navb = ({ navSearch }) => {
             src="https://www.edigitalagency.com.au/wp-content/uploads/Netflix-logo-red-black-png.png"
           />
         </Navbar.Brand>
+       
         <Navbar.Toggle aria-controls="navbarScroll" />
+        
         <Navbar.Collapse id="navbarScroll">
+        <button className='Navb-lang' onClick={changeLang}>{lang === `ko-KR`?'KO':'US'}</button>
           <Nav
             className="me-auto my-2 my-lg-0"
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
+            
             <Link to="/" href="#action1" className="Navb-Home">
               Home
             </Link>
             <Link to="/movies" href="#action2" className="Navb-Movies">
               Movies
             </Link>
+           
+          
           </Nav>
           <Form className={navSearch ? "d-flex" : "hide"}>
             <Form.Control
@@ -56,7 +66,9 @@ const Navb = ({ navSearch }) => {
               {" "}
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </Button>
+           
           </Form>
+         
         </Navbar.Collapse>
       </Container>
     </Navbar>

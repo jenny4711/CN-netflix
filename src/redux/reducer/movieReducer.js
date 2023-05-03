@@ -13,6 +13,7 @@ let initialState={
   banner:{},
   home:true,
   searchTitleList:{},
+ 
 }
 
 const movieSlice=createSlice({
@@ -27,6 +28,7 @@ const movieSlice=createSlice({
     state.genreList=action.payload.genre
     state.banner=action.payload.banner
     state.loading=false
+   
   
 
   
@@ -39,7 +41,7 @@ const movieSlice=createSlice({
     state.movieVideoList=action.payload.MovieVideo
     state.recommendationList=action.payload.recommend
     state.movieVideoList=action.payload.movieVideo
-    // state.searchTitleList=action.payload.searchTitle
+    
 
    },
    loadingHandler(state,action){
@@ -48,8 +50,10 @@ const movieSlice=createSlice({
    getError(state,action){
     state.loading=false
    },
+   
    searchByTitle(state,action){
     state.searchTitleList=action.payload.searchTitle
+    
    },
   
 

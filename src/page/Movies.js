@@ -15,7 +15,7 @@ import "rc-slider/assets/index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-function Movies({ setNavSearch }) {
+function Movies({ setNavSearch,lang}) {
   const dispatch = useDispatch();
   const { popularMovies, loading, genreList, searchTitleList } = useSelector(
     (state) => state.movies
@@ -35,7 +35,7 @@ function Movies({ setNavSearch }) {
     let titleQuery = query.get("query") || "";
     console.log("query", titleQuery);
 
-    dispatch(movieAction.searchByTitle(titleQuery));
+    dispatch(movieAction.searchByTitle(titleQuery,lang));
     setResult(searchTitleList?.results);
   };
   // search by title in movies
@@ -50,7 +50,7 @@ function Movies({ setNavSearch }) {
 
   const search = (e) => {
     console.log(e);
-    dispatch(movieAction.searchByTitle(keyword));
+    dispatch(movieAction.searchByTitle(keyword,lang));
   };
 
   useEffect(() => {
@@ -77,7 +77,7 @@ function Movies({ setNavSearch }) {
     console.log(page);
     setPage(page);
 
-    dispatch(movieAction.getMovies(page));
+    dispatch(movieAction.getMovies(page,lang));
     setResult(popularMovies?.results);
   };
 

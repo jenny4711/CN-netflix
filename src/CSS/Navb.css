@@ -14,11 +14,7 @@
   background-color: black;
 }
 @media only screen and (max-width: 768px) {
-  /* #navbarScroll {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.5rem;
-  } */
+  
   .show {
     display: flex;
     flex-direction: column;
@@ -26,5 +22,14 @@
     margin-right:5rem;
     width: 110%;
     height: 100%;
+  }
+  .d-flex{
+    margin-left:7rem;
+  }
+  .d-flex .me-2{
+    width:10rem;
+  }
+  .Navb-lang{
+    margin-right:13rem;
   }
 }
