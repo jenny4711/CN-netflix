@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { movieAction } from "../redux/actions/movieAction";
+
 import Review from "../component/Review";
 import RelatedMovies from '../component/RelatedMovies';
 import MovieSlide from '../component/MovieSlide'
@@ -17,6 +18,9 @@ function MovieDetail({setNavSearch}) {
   const dispatch = useDispatch();
   const [on,setOn]=useState(false);
   const [open,setOpen]=useState(false);
+  // const [color,setColor]=useState('red')
+  // const toggleColor=()=>setColor(color=>color === 'red'?'black':'red')
+  
  
   const {
     searchMovie,
@@ -25,6 +29,7 @@ function MovieDetail({setNavSearch}) {
     recommendationList,
     movieVideoList,
   } = useSelector((state) => state.movies);
+ 
   setNavSearch(false)
  
 
@@ -116,8 +121,8 @@ function MovieDetail({setNavSearch}) {
 
       <div className='MovieDetail-extra'>
         <div className='MovieDetail-btns'>
-        <button classname='reviewBtn' onClick={()=>setOn(on=>on === true?false:true)}>REVIEW({result?.length})</button>
-        <button className='relatedBtn' onClick={()=>setOpen(open=>open ===true?false:true)}>RELATED MOVIES({ recomResult?.length})</button>
+        <button className={on?'reviewBtn-bk':'reviewBtn'} onClick={()=>setOn(on=>on === true?false:true)}>REVIEW({result?.length})</button>
+        <button  className={open?'relatedBtn-bk':'relatedBtn'} onClick={()=>setOpen(open=>open ===true?false:true)}>RELATED MOVIES({ recomResult?.length})</button>
         </div>
        
         <div className={on?'review-all':'hide'}>
