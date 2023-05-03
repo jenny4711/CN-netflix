@@ -12,6 +12,8 @@ import { useSearchParams } from "react-router-dom";
 import Slider from "rc-slider";
 import {Navbar,Form,Button,Nav,NavDropdown,FormControl} from "react-bootstrap"
 import "rc-slider/assets/index.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function Movies({setNavSearch}) {
   const dispatch = useDispatch();
@@ -238,7 +240,7 @@ setGenre(true)
             aria-label="Search"
             onChange={keywordHandler}
           />
-          <Button variant="outline-danger" onClick={(e)=>search(e)}>Search</Button>
+          <Button variant="outline-danger" onClick={(e)=>search(e)}><FontAwesomeIcon icon={faMagnifyingGlass} /></Button>
         </Form>
           <Row>
             {result?.map((item) => (

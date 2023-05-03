@@ -4,8 +4,9 @@ import {Link} from 'react-router-dom'
 // import MovieListCard from './MovieListCard'
 import '../CSS/Navb.css'
 import { useSelector,useDispatch } from 'react-redux'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {useNavigate } from "react-router-dom"
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Navb = ({navSearch}) => {
   const navigate=useNavigate()
@@ -62,7 +63,7 @@ const search=async(e)=>{
             aria-label="Search"
             onChange={keywordHandler}
           />
-          <Button variant="outline-danger" onClick={(e)=>search(e)}>Search</Button>
+          <Button variant="outline-danger" onClick={(e)=>search(e)}> <FontAwesomeIcon icon={faMagnifyingGlass} /></Button>
         </Form>
       </Navbar.Collapse>
     </Container>
