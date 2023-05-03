@@ -9,7 +9,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import "../CSS/MovieDetail.css";
 import Trailer from "./Trailer";
 
-function MovieDetail({ setNavSearch}) {
+function MovieDetail({ setNavSearch,lang}) {
   let { id } = useParams();
   const dispatch = useDispatch();
   const [on, setOn] = useState(false);
@@ -31,11 +31,11 @@ function MovieDetail({ setNavSearch}) {
 
   useEffect(() => {
     function getList() {
-      dispatch(movieAction.searchMovie(sp));
+      dispatch(movieAction.searchMovie(sp,lang));
     }
 
     getList();
-  }, [id]);
+  }, [id,lang]);
 
   return (
     <div key={searchMovie.id} className="MovieDetail-App">
