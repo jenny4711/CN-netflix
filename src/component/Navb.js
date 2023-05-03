@@ -1,14 +1,7 @@
 import React, { useState } from "react";
-import {
-  Navbar,
-  Container,
-  Form,
-  Button,
-  Nav,
-} from "react-bootstrap";
+import { Navbar, Container, Form, Button, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../CSS/Navb.css";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
@@ -16,10 +9,9 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 const Navb = ({ navSearch }) => {
   const navigate = useNavigate();
   const [keyword, setKeyword] = useState("");
-
   const keywordHandler = (e) => {
     const key = e.target.value;
-    console.log(key);
+
     setKeyword(key);
   };
 

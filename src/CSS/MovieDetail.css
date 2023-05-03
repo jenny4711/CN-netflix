@@ -1,116 +1,108 @@
-.MovieDetail-App{
-  display:flex;
+.MovieDetail-App {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
 
-.MovieDetail{
-  display:flex;
+.MovieDetail {
+  display: flex;
   justify-content: center;
   background-color: #060606;
-  box-shadow: -8px 5px 8px -6px rgba(0,0,0,0.71);
-  width:60rem;
-  height:40rem;
+  box-shadow: -8px 5px 8px -6px rgba(0, 0, 0, 0.71);
+  width: 60rem;
+  height: 40rem;
   margin-top: 5rem;
-  padding:2rem;
-  border:2px solid white;
+  padding: 2rem;
+  border: 2px solid white;
 }
 
-.MovieDetail-info{
-  display:flex;
+.MovieDetail-info {
+  display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-left:2rem;
-  padding:2px
- 
+  margin-left: 2rem;
+  padding: 2px;
 }
-.MovieDetail-smInfo,.MovieDetail-overview,.MovieDetail-extraInfo{
+.MovieDetail-smInfo,
+.MovieDetail-overview,
+.MovieDetail-extraInfo {
   border-bottom: 1px solid white;
-  padding:2px
+  padding: 2px;
 }
-.MovieDetail-smInfo{
-  display:flex;
+.MovieDetail-smInfo {
+  display: flex;
 }
-.MovieDetail-smInfo p{
-  margin-left: 2rem;;
+.MovieDetail-smInfo p {
+  margin-left: 2rem;
 }
-.under18{
-  width:3rem;
+.under18 {
+  width: 3rem;
 }
-.hide{
-  display:none
+.hide {
+  display: none;
 }
-.review-all{
-  display:flex;
-  flex-wrap:wrap;
+.review-all {
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  border:2px solid white;
+  border: 2px solid white;
   border-bottom: 2px solid white;
-  width:60rem;
-  padding:2rem;
-  margin-bottom:2rem;
+  width: 60rem;
+  padding: 2rem;
+  margin-bottom: 2rem;
 }
-.MovieDetail-btns{
-  display:flex;
+.MovieDetail-btns {
+  display: flex;
   justify-content: center;
-  margin:2rem;
-
+  margin: 2rem;
 }
-.MovieDetail-btns button{
-  height:4rem;
-  padding:1rem;
- 
+.MovieDetail-btns button {
+  height: 4rem;
+  padding: 1rem;
 }
-.relatedBtn{
+.relatedBtn {
   background-color: red;
 }
-.relatedBtn-bk{
+.relatedBtn-bk {
   background-color: black;
-  color:red;
+  color: red;
   border: 2px solid red;
 }
 
-
-.reviewBtn{
+.reviewBtn {
   background-color: white;
-  color:black;
+  color: black;
   margin-right: 1rem;
 }
 
-.reviewBtn-bk{
-  background-color:black;
-  color:white;
+.reviewBtn-bk {
+  background-color: black;
+  color: white;
   border: 2px solid white;
 }
-.recom-all{
+.recom-all {
   display: flex;
   justify-content: center;
   align-content: center;
-  width:60rem;
+  width: 60rem;
 }
-.MovieDetail-trailer{
+.MovieDetail-trailer {
   margin-top: 1rem;
- 
-   border-bottom: 2px solid white;
+
+  border-bottom: 2px solid white;
 }
-@media only screen and (max-width:768px){
-  .MovieDetail{
-    height:60rem;
-    width:300px;
+@media only screen and (max-width: 768px) {
+  .MovieDetail {
+    height: 60rem;
+    width: 300px;
   }
-  .review-all,.recom-all{
-    display:flex;
+  .review-all,
+  .recom-all {
+    display: flex;
     flex-direction: column;
-    width:300px;
-   
+    width: 300px;
   }
-  
-
 }
-
-
-

@@ -1,27 +1,30 @@
-.Navb-Home,.Navb-Movies{
-  color:white;
+.Navb-Home,
+.Navb-Movies {
+  color: white;
   text-decoration: none;
   margin: 1rem;
-
 }
-.hide{
-  display:none;
+.hide {
+  display: none;
 }
-.navbar{
-  background-color:black;
-}
-.container-fluid{
+.navbar {
   background-color: black;
 }
-@media only screen and (max-width:768px){
-  #navbarScroll{
-    display:flex;
+.container-fluid {
+  background-color: black;
+}
+@media only screen and (max-width: 768px) {
+  /* #navbarScroll {
+    display: flex;
     flex-direction: column;
     margin-bottom: 1.5rem;
-  
-  }
-  .show{
-    width:110%;
-    height:100%;
+  } */
+  .show {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    margin-right:5rem;
+    width: 110%;
+    height: 100%;
   }
 }

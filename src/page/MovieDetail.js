@@ -2,58 +2,40 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { movieAction } from "../redux/actions/movieAction";
-
 import Review from "../component/Review";
-import RelatedMovies from '../component/RelatedMovies';
-import MovieSlide from '../component/MovieSlide'
+import RelatedMovies from "../component/RelatedMovies";
 import Badge from "react-bootstrap/Badge";
-import { Container,Row ,Col} from 'react-bootstrap';
+import { Container, Row, Col } from "react-bootstrap";
 import "../CSS/MovieDetail.css";
-import Trailer from './Trailer';
+import Trailer from "./Trailer";
 
-
-
-function MovieDetail({setNavSearch}) {
+function MovieDetail({ setNavSearch }) {
   let { id } = useParams();
   const dispatch = useDispatch();
-  const [on,setOn]=useState(false);
-  const [open,setOpen]=useState(false);
-  // const [color,setColor]=useState('red')
-  // const toggleColor=()=>setColor(color=>color === 'red'?'black':'red')
-  
- 
-  const {
-    searchMovie,
-    genreList,
-    reviewList,
-    recommendationList,
-    movieVideoList,
-  } = useSelector((state) => state.movies);
- 
-  setNavSearch(false)
- 
+  const [on, setOn] = useState(false);
+  const [open, setOpen] = useState(false);
+  const { searchMovie, reviewList, recommendationList, movieVideoList } =
+    useSelector((state) => state.movies);
+    setNavSearch(false);
 
+    // adults img
   const under18 =
     "https://st2.depositphotos.com/1431107/11748/v/450/depositphotos_117484062-stock-illustration-under-18-year-rubber-stamp.jpg";
   const pg =
     "https://www.canr.msu.edu/contentAsset/image/6d081af8-8fa6-4927-bc64-c1ee0dca1b12/fileAsset/filter/Resize,Jpeg/resize_w/750/jpeg_q/80";
   let sp = id.replace(":", "");
 
-  let result=reviewList.results
+  let result = reviewList.results;
   let nameOfGenres = searchMovie.genres;
-  let recomResult=recommendationList.results
+  let recomResult = recommendationList.results;
 
   useEffect(() => {
     function getList() {
       dispatch(movieAction.searchMovie(sp));
     }
-  
+
     getList();
   }, [id]);
-
-
-  
-
 
   return (
     <div key={searchMovie.id} className="MovieDetail-App">
@@ -108,39 +90,47 @@ function MovieDetail({setNavSearch}) {
             <p>
               <Badge bg="danger">Revenue</Badge> ${searchMovie?.revenue}
             </p>
-
-          
-
-        
           </div>
-          <div className='MovieDetail-trailer'>
-          <Trailer videoId={movieVideoList.key}/>
+          <div className="MovieDetail-trailer">
+            <Trailer videoId={movieVideoList.key} />
           </div>
         </div>
       </div>
 
-      <div className='MovieDetail-extra'>
-        <div className='MovieDetail-btns'>
-        <button className={on?'reviewBtn-bk':'reviewBtn'} onClick={()=>setOn(on=>on === true?false:true)}>REVIEW({result?.length})</button>
-        <button  className={open?'relatedBtn-bk':'relatedBtn'} onClick={()=>setOpen(open=>open ===true?false:true)}>RELATED MOVIES({ recomResult?.length})</button>
-        </div>
-       
-        <div className={on?'review-all':'hide'}>
-        {result?.map((item)=> <div><Review item={item} /></div>)}
-       
+      <div className="MovieDetail-extra">
+        <div className="MovieDetail-btns">
+          <button
+            className={on ? "reviewBtn-bk" : "reviewBtn"}
+            onClick={() => setOn((on) => (on === true ? false : true))}
+          >
+            REVIEW({result?.length})
+          </button>
+          <button
+            className={open ? "relatedBtn-bk" : "relatedBtn"}
+            onClick={() => setOpen((open) => (open === true ? false : true))}
+          >
+            RELATED MOVIES({recomResult?.length})
+          </button>
         </div>
 
-        <div className={open?'recom-all':'hide'}>
-        <Container>
-        <Row>
-         
-          {recomResult?.map((item)=>  <Col lg={4}><RelatedMovies item={item} /> </Col>)}
-         
-        </Row>
+        <div className={on ? "review-all" : "hide"}>
+          {result?.map((item) => (
+            <div>
+              <Review item={item} />
+            </div>
+          ))}
+        </div>
 
-      </Container>
-         
-      
+        <div className={open ? "recom-all" : "hide"}>
+          <Container>
+            <Row>
+              {recomResult?.map((item) => (
+                <Col lg={4}>
+                  <RelatedMovies item={item} />{" "}
+                </Col>
+              ))}
+            </Row>
+          </Container>
         </div>
       </div>
     </div>

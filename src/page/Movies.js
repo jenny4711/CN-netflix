@@ -10,26 +10,27 @@ import "../CSS/Movies.css";
 import Pagination from "react-js-pagination";
 import { useSearchParams } from "react-router-dom";
 import Slider from "rc-slider";
-import {Navbar,Form,Button,Nav,NavDropdown,FormControl} from "react-bootstrap"
+import { Form, Button } from "react-bootstrap";
 import "rc-slider/assets/index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-function Movies({setNavSearch}) {
+function Movies({ setNavSearch }) {
   const dispatch = useDispatch();
-  const { popularMovies, loading, genreList, searchTitleList } =
-    useSelector((state) => state.movies);
-  console.log(searchTitleList.results);
+  const { popularMovies, loading, genreList, searchTitleList } = useSelector(
+    (state) => state.movies
+  );
+
   const [query, setQuery] = useSearchParams();
   const [result, setResult] = useState(popularMovies?.results);
   const [page, setPage] = useState(1);
   const [value, setValue] = useState([1990, 2023]);
   const [show, setShow] = useState(false);
-  const [keyword,setKeyword]=useState('')
-  const [genre,setGenre]=useState(false)
-   setNavSearch(false)
+  const [keyword, setKeyword] = useState("");
+  const [genre, setGenre] = useState(false);
+  setNavSearch(false);
 
-// search by title
+  // search by title in nav
   const getListByTitle = () => {
     let titleQuery = query.get("query") || "";
     console.log("query", titleQuery);
@@ -37,30 +38,27 @@ function Movies({setNavSearch}) {
     dispatch(movieAction.searchByTitle(titleQuery));
     setResult(searchTitleList?.results);
   };
+  // search by title in movies
 
-  const keywordHandler=(e)=>{
-    e.preventDefault()
-   
-    
-      let title=e.target.value
-      console.log(title)
-      setKeyword(title)
-     
-    
-  }
+  const keywordHandler = (e) => {
+    e.preventDefault();
 
-  const search=(e)=>{
-    console.log(e)
+    let title = e.target.value;
+    console.log(title);
+    setKeyword(title);
+  };
+
+  const search = (e) => {
+    console.log(e);
     dispatch(movieAction.searchByTitle(keyword));
-
-  }
+  };
 
   useEffect(() => {
     getListByTitle();
   }, []);
 
   const getResult = () => {
-    let searchList = searchTitleList && searchTitleList?.results
+    let searchList = searchTitleList && searchTitleList?.results;
     console.log(searchList === 0, "working");
     if (!searchList || !searchList.length) {
       return setResult(popularMovies?.results);
@@ -76,11 +74,11 @@ function Movies({setNavSearch}) {
   // pagination
 
   const handlePageChange = async (page) => {
-    console.log(page)
+    console.log(page);
     setPage(page);
 
     dispatch(movieAction.getMovies(page));
-    setResult(popularMovies?.results)
+    setResult(popularMovies?.results);
   };
 
   // filter
@@ -89,10 +87,10 @@ function Movies({setNavSearch}) {
     setShow(true);
   };
 
-  const handleGenre =(e)=>{
-setGenre(true)
-  }
-
+  const handleGenre = (e) => {
+    setGenre(true);
+  };
+  // filter by years
   const handleSliderChange = async (newValue) => {
     setValue(newValue);
 
@@ -106,13 +104,15 @@ setGenre(true)
 
     setResult(filterObj);
   };
-
+  //filter by genre
   const genreBtn = async (e, newGenre) => {
     let filterObj = popularMovies?.results.filter((item) => {
       return item.genre_ids.includes(e);
     });
     setResult(filterObj);
   };
+
+  // sort
 
   const getTitle = () => {
     const sortedResult = [...popularMovies?.results].sort(function (a, b) {
@@ -151,6 +151,8 @@ setGenre(true)
     setResult(sortedDateResult);
   };
 
+  // spinning
+
   if (loading) {
     return (
       <ClipLoader
@@ -166,7 +168,7 @@ setGenre(true)
   return (
     <>
       <div className="Movies">
-        <div className='Movies-form'>
+        <div className="Movies-form">
           <Dropdown className="Movies-drop1">
             <Dropdown.Toggle variant="dark" id="dropdown-basic drop1">
               Sort
@@ -194,7 +196,9 @@ setGenre(true)
               <Dropdown.Item href="#/action-1" onClick={handleRange}>
                 Filter By Years
               </Dropdown.Item>
-              <Dropdown.Item href="#/action-2" onClick={handleGenre}>Filter By Genre</Dropdown.Item>
+              <Dropdown.Item href="#/action-2" onClick={handleGenre}>
+                Filter By Genre
+              </Dropdown.Item>
               <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
@@ -210,7 +214,7 @@ setGenre(true)
               ariaLabelledByGroupForHandles={["GroupForHandle"]}
               tabIndex={[0, 0]}
               onChange={handleSliderChange}
-            /> 
+            />
           </div>
           <div className={genre ? "Movies-btn" : "hide"}>
             <Container>
@@ -231,20 +235,20 @@ setGenre(true)
         </div>
         <Container>
           <h3>Movie's List</h3>
-        <Form className="d-flex movies-form1" >
-          <Form.Control
-        
-            type="search"
-            placeholder="Search"
-            className="me-2 mv-search"
-            aria-label="Search"
-            onChange={keywordHandler}
-          />
-          <Button variant="outline-danger" onClick={(e)=>search(e)}><FontAwesomeIcon icon={faMagnifyingGlass} /></Button>
-        </Form>
+          <Form className="d-flex movies-form1">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2 mv-search"
+              aria-label="Search"
+              onChange={keywordHandler}
+            />
+            <Button variant="outline-danger" onClick={(e) => search(e)}>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </Button>
+          </Form>
           <Row>
             {result?.map((item) => (
-             
               <Col lg={4} key={item.id}>
                 <MovieListCard item={item} />
               </Col>
