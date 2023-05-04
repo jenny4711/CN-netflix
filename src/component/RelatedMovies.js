@@ -2,12 +2,14 @@ import React from 'react'
 import { Container,Row ,Col} from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import '../CSS/RelatedMovies.css'
+import { animateScroll as scroll } from 'react-scroll';
 
 const RelatedMovies = ({item}) => {
   const navigate=useNavigate()
 const clickCard=(e)=>{
   e.preventDefault()
   navigate(`/movieDetail/:${item.id}`)
+  scroll.scrollToTop()
 
 }
 
