@@ -19,4 +19,25 @@
   content:'';
   background:linear-gradient(to right, black, transparent)
 }
+@media only screen and (max-width:768px){
+ .Banner{
+  width:100%;
+    background-size:100% 100%;
+  }
+  .Banner::before{
+    position:absolute;
+    display:flex;
+    left:0;
+    width:100%;
+    height:95%;
+    content:'';
+    background:linear-gradient(to right, black, transparent)
+  }
+
+  .Banner-info{
+    width:100%;
+    margin-top:35rem;
+  }
+
+}
 

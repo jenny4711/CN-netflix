@@ -5,6 +5,7 @@ import Banner from '../component/Banner'
 import MovieSlide from '../component/MovieSlide'
 import ClipLoader from "react-spinners/ClipLoader";
 
+
 function Home({setNavSearch,lang}) {
   const dispatch = useDispatch()
  const {popularMovies,topRateMovies,upcomingMovies,loading,banner}=useSelector(state=>state.movies)
@@ -27,7 +28,7 @@ dispatch(movieAction.getMovies(null,lang))
   />
   }
   return (
-    <div>
+    <div className='Home-sections'>
       
     <Banner movie={banner}/> 
     <h1>Popular Movie</h1>
