@@ -7,17 +7,18 @@ import oc from 'open-color';
 
 import React from 'react'
 
-export default  ()=>({min,max,value,pushable,allowCross, ariaLabelGroupForHandles,ariaLabelledByGroupForHandles,tabIndex,onChange}) => (
+export default  ()=>({min,max,value,defaultValue,pushable,allowCross, ariaLabelGroupForHandles,ariaLabelledByGroupForHandles,tabIndex,tipFormatter,onChange}) => (
   <>
     <Slider.range 
    
     className='t-slider'
     min={min}
     max={max}
-    value={value}
-     defaultValue={[1990, 2022]}
-     allowCross={allowCross}
+     value={value}
+     defaultValue={defaultValue}
      pushable={pushable}
+     allowCross={allowCross}
+     tipFormatter={tipFormatter}
      ariaLabelGroupForHandles={ariaLabelGroupForHandles}
      ariaLabelledByGroupForHandles={ariaLabelledByGroupForHandles}
      tabIndex={tabIndex}
@@ -25,6 +26,23 @@ export default  ()=>({min,max,value,pushable,allowCross, ariaLabelGroupForHandle
      count={1}
     onChange={onChange}
     />
+    <Slider.range 
+   
+   className='t-slider'
+   min={min}
+   max={max}
+   value={value}
+    defaultValue={defaultValue}
+    pushable={pushable}
+    allowCross={allowCross}
+    tipFormatter={tipFormatter}
+    ariaLabelGroupForHandles={ariaLabelGroupForHandles}
+    ariaLabelledByGroupForHandles={ariaLabelledByGroupForHandles}
+    tabIndex={tabIndex}
+    tipFormatter={value => `${value}%`}
+    count={1}
+   onChange={onChange}
+   />
 
   </>
 );

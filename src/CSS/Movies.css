@@ -53,6 +53,7 @@ justify-content: center;
   display:flex;
   justify-content: center;
   background-color: black;
+
   margin-left: 1rem;
   margin-top: 2rem;
   color:white;
@@ -74,13 +75,63 @@ background: linear-gradient(90deg, rgba(240,37,8,1) 1%, rgba(18,17,17,1) 85%);
 margin-top:1rem;
 width:25rem;
 }
-
+/* .Movies-form{
+  width:210px;
+} */
+.rc-slider-rail{
+  width:210px;
+}
 .movies-form1{
   width:25rem;
   margin-left:30%;
   margin-top:5%;
   margin-bottom:5%;
 }
+
+.Movies-slider{
+  width:50rem;
+
+}
+.horizontal-slider{
+    width: 100%;
+    max-width: 500px;
+    height: 50px;
+    border: 1px solid grey;
+}
+.horizontal-slider .example-track {
+  top: 20px;
+  height: 10px;
+}
+
+.example-track.example-track-1{
+  background-color: red;
+}
+.example-track.example-track-0{
+  background-color: gray;
+}
+.example-track.example-track-2{
+  background-color: gray;
+}
+.horizontal-slider .example-thumb {
+  top:1px;
+  width:50px;
+  height:48px;
+  line-height:38px;
+  font-size:0.9em;
+  text-align:center;
+  background-color: black;
+  color:white;
+  cursor:pointer;
+  border:3px solid gray;
+  box-sizing:border-box;
+border-radius: 50%;
+
+
+}
+
+
+
+
 @media only screen and (max-width:768px){
   .Movies{
     flex-direction: column;
@@ -115,5 +166,10 @@ width:25rem;
     margin-left:1rem;
     margin-bottom:1.5rem;
   }
+  .Movies-slider{
+    width:15rem;
+   
+  }
+  
  
 }

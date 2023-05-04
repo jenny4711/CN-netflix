@@ -9,7 +9,8 @@ import "@lucchev/react-slider/styles.css";
 import "../CSS/Movies.css";
 import Pagination from "react-js-pagination";
 import { useSearchParams } from "react-router-dom";
-import Slider from "rc-slider";
+// import Slider from "rc-slider";
+import ReactSlider from 'react-slider';
 import { Form, Button } from "react-bootstrap";
 import "rc-slider/assets/index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -24,7 +25,8 @@ function Movies({ setNavSearch,lang}) {
   const [query, setQuery] = useSearchParams();
   const [result, setResult] = useState(popularMovies?.results);
   const [page, setPage] = useState(1);
-  const [value, setValue] = useState([1990, 2023]);
+  const [value, setValue] = useState([]);
+  
   const [show, setShow] = useState(false);
   const [keyword, setKeyword] = useState("");
   const [genre, setGenre] = useState(false);
@@ -97,7 +99,9 @@ function Movies({ setNavSearch,lang}) {
   };
   // filter by years
   const handleSliderChange = async (newValue) => {
+    console.log(newValue,'newValue')
     setValue(newValue);
+  
 
     let filterObj = [...result].filter((item) => {
       if (item.release_date) {
@@ -208,18 +212,23 @@ function Movies({ setNavSearch,lang}) {
             </Dropdown.Menu>
           </Dropdown>
           <div className={show ? "show" : "hide"}>
-            {value}
-            <Slider
-              min={1990}
-              max={2023}
-              value={value}
-              pushable={false}
-              allowCross={false}
-              ariaLabelGroupForHandles={["Range Handle"]}
-              ariaLabelledByGroupForHandles={["GroupForHandle"]}
-              tabIndex={[0, 0]}
-              onChange={handleSliderChange}
-            />
+            <div className='Movies-slider'>
+           <ReactSlider
+           className='horizontal-slider'
+           thumbClassName='example-thumb'
+           trackClassName='example-track'
+           defaultValue={[1958,2023]}
+           max={2023}
+           min={1958}
+           onChange={(value,index)=>setValue(value)}
+           renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
+           
+           />
+           <hr/>
+           <h6>From:{value[0]}</h6>
+           <h6>To:{value[1]}</h6>
+            </div>
+          
           </div>
           <div className={genre ? "Movies-btn" : "hide"}>
             <Container>
