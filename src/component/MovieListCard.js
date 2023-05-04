@@ -32,8 +32,8 @@ const pg =
       }}
     >
       <div className="MovieListCard-overlay">
-        <h2>{item?.title}</h2>
-        <div>
+        <h4>{item?.title}</h4>
+        <div className='MovieListCard-genre'>
           {item?.genre_ids.map((id) => (
             <Badge bg="danger">
               {genreList.find((item) => item.id == id).name}
