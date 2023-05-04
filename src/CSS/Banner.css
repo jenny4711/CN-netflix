@@ -15,7 +15,7 @@
   position:absolute;
   left:0;
   width:100%;
-  height:600px;
+  height:400px;
   content:'';
   background:linear-gradient(to right, black, transparent)
 }
@@ -29,9 +29,9 @@
     display:flex;
     left:0;
     width:100%;
-    height:100%;
+    height:80%;
     content:'';
-    background:linear-gradient(to right, black, transparent)
+    background:linear-gradient(to bottom, black, transparent)
   }
 
   .Banner-info{
