@@ -110,4 +110,7 @@
     flex-direction: column;
     width: 300px;
   }
+  .relatedBtn,.relatedBtn-bk,.reviewBtn,.reviewBtn-bk{
+    font-size:13px;
+  }
 }

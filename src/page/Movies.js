@@ -214,7 +214,7 @@ function Movies({ setNavSearch,lang}) {
               max={2023}
               value={value}
               pushable={false}
-              allowCross={true}
+              allowCross={false}
               ariaLabelGroupForHandles={["Range Handle"]}
               ariaLabelledByGroupForHandles={["GroupForHandle"]}
               tabIndex={[0, 0]}

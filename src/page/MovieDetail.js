@@ -8,7 +8,7 @@ import Badge from "react-bootstrap/Badge";
 import { Container, Row, Col } from "react-bootstrap";
 import "../CSS/MovieDetail.css";
 import Trailer from "./Trailer";
-import { animateScroll as scroll } from 'react-scroll';
+
 
 
 function MovieDetail({ setNavSearch,lang}) {
