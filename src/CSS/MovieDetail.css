@@ -82,6 +82,7 @@
   background-color: black;
   color: white;
   border: 2px solid white;
+  margin-right: 1rem;
 }
 .recom-all {
   display: flex;
