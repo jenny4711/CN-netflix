@@ -4,7 +4,7 @@ import { useDispatch,useSelector } from 'react-redux'
 import Banner from '../component/Banner'
 import MovieSlide from '../component/MovieSlide'
 import ClipLoader from "react-spinners/ClipLoader";
-
+import '../CSS/Home.css'
 
 function Home({setNavSearch,lang}) {
   const dispatch = useDispatch()
@@ -31,7 +31,7 @@ dispatch(movieAction.getMovies(null,lang))
     <div className='Home-sections'>
       
     <Banner movie={banner}/> 
-    <h1>Popular Movie</h1>
+    <h1 className='top-h1'>Popular Movie</h1>
     <MovieSlide movies={popularMovies} loading={loading}/>
     <h1>Top Rate Movie</h1>
     <MovieSlide movies={topRateMovies} loading={loading}/>

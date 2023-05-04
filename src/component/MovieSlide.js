@@ -1,10 +1,12 @@
-  import React,{useEffect} from 'react'
+import React,{useEffect} from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import MovieCard from './MovieCard';
 import ClipLoader from "react-spinners/ClipLoader";
 import { movieAction } from '../redux/actions/movieAction'
 import { useSelector, useDispatch } from "react-redux";
+import '../CSS/MovieSlide.css'
+
 
 const responsive = {
   superLargeDesktop: {
@@ -42,22 +44,22 @@ const MovieSlide = ({movies,loading}) => {
 
   return (
     <div className='MovieSlide'>
-      <Carousel responsive={responsive}>
-      
-        {movies?.results.map(item=>(<MovieCard item={item}/>))}
-        <MovieCard />
-        <MovieCard/>
-        <MovieCard/>
-        <MovieCard/>
-        <MovieCard/>
-  <div>Item 1</div>
-  <div>Item 2</div>
-  <div>Item 3</div>
-  <div>Item 4</div>
-</Carousel>;
-
+    
+        <Carousel responsive={responsive}>
+          {movies?.results.map(item=>(<MovieCard item={item}/>))}
+          <MovieCard />
+          <MovieCard/>
+          <MovieCard/>
+          <MovieCard/>
+          <MovieCard/>
+          <div>Item 1</div>
+          <div>Item 2</div>
+          <div>Item 3</div>
+          <div>Item 4</div>
+        </Carousel>
+    
     </div>
   )
 }
 
-export default MovieSlide
+export default MovieSlide;
