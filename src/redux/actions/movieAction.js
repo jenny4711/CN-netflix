@@ -36,21 +36,23 @@ function getMovies(page,lang) {
       const genreAPI = api.get(
         `/genre/movie/list?api_key=${API_KEY}&language=${lang}`
       );
-      
+       
 
-      const  [popularMovies, allListMovies ,topRatedMovies, upcomingMovies,genreList ] = await Promise.all([
+      const  [popularMovies, allListMovies ,topRatedMovies, upcomingMovies,genreList] = await Promise.all([
         popularMovieAPI,
         allListAPI,
         topRatedAPI,
         upcomingAPI,
         genreAPI,
        
+    
+       
       
       ]);
-
+     
       let bannerList=popularMovies.data.results
       const makeBanner=Math.floor(Math.random()*bannerList.length)
-     
+  console.log(origin)
      
      
       let pop=popularMovies.data
@@ -61,7 +63,7 @@ function getMovies(page,lang) {
       let banner=bannerList[makeBanner]
       let bun= lang
 
-      console.log(bun,'bun')
+   
     
     
   dispatch(movieActions.getAllmovies({pop,all,top,up,genre,banner,bun}))
@@ -91,7 +93,7 @@ function searchMovie(searchId,lang){
       const getMovieVideoAPI=api.get(`/movie/${searchId}/videos?api_key=${API_KEY}&language=${lang}`);
 
       const getRecommendationsAPI=api.get(`/movie/${searchId}/recommendations?api_key=${API_KEY}&language=${lang}&page=1`)
-
+      
       //const searchTitleAPI= api.get(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${searchId}`)
 
   
@@ -101,7 +103,9 @@ function searchMovie(searchId,lang){
         reviewAPI,
         getMovieVideoAPI,
         getRecommendationsAPI,
+       
         //searchTitleAPI,
+       
 
       ]);
       let search=searchMovie.data

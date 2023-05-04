@@ -99,13 +99,16 @@ function Movies({ setNavSearch,lang}) {
   };
   // filter by years
   const handleSliderChange = async () => {
+    
     const filterObj = result.filter(item => {
+      
       const itemYear = new Date(item.release_date).getFullYear();
-      console.log(itemYear,'year')
-      console.log(2013 <= itemYear && itemYear <= 2022)
-      return value[0] <= itemYear && itemYear < value[1];
+    
+      // console.log(2013 <= itemYear && itemYear <= 2022)
+      return value[0] <= itemYear && itemYear <= value[1];
     });
     setResult(filterObj);
+  
   };
   
 
