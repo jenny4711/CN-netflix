@@ -98,21 +98,17 @@ function Movies({ setNavSearch,lang}) {
     setGenre(true);
   };
   // filter by years
-  const handleSliderChange = async (newValue) => {
-    console.log(newValue,'newValue')
-    setValue(newValue);
-  
-
-    let filterObj = [...result].filter((item) => {
-      if (item.release_date) {
-        return new Date(item.release_date).getFullYear() > newValue;
-      } else {
-        return false;
-      }
+  const handleSliderChange = async () => {
+    const filterObj = result.filter(item => {
+      const itemYear = new Date(item.release_date).getFullYear();
+      console.log(itemYear,'year')
+      console.log(2013 <= itemYear && itemYear <= 2022)
+      return value[0] <= itemYear && itemYear < value[1];
     });
-
     setResult(filterObj);
   };
+  
+
   //filter by genre
   const genreBtn = async (e, newGenre) => {
     let filterObj = popularMovies?.results.filter((item) => {
@@ -217,9 +213,9 @@ function Movies({ setNavSearch,lang}) {
            className='horizontal-slider'
            thumbClassName='example-thumb'
            trackClassName='example-track'
-           defaultValue={[1958,2023]}
-           max={2023}
-           min={1958}
+           defaultValue={['1990','2023']}
+           max={'2023'}
+           min={'1990'}
            onChange={(value,index)=>setValue(value)}
            renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
            
@@ -227,6 +223,7 @@ function Movies({ setNavSearch,lang}) {
            <hr/>
            <h6>From:{value[0]}</h6>
            <h6>To:{value[1]}</h6>
+           <button onClick={handleSliderChange}>Click</button>
             </div>
           
           </div>
