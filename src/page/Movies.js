@@ -232,9 +232,9 @@ function Movies({ setNavSearch,lang}) {
           </div>
           <div className={genre ? "Movies-btn" : "hide"}>
             <Container>
-              <Row>
+              <Row xs="auto">
                 {genreList?.map((item) => (
-                  <Col lg={5} key={item.id}>
+                  <Col  key={item.id}>
                     <button
                       className="genreBtn"
                       onClick={(e) => genreBtn(item.id)}
