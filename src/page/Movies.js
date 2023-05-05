@@ -58,7 +58,7 @@ function Movies({ setNavSearch,lang}) {
   useEffect(() => {
     getListByTitle();
     search()
-  }, [lang]);
+  }, [lang,query]);
 
   const getResult = () => {
     let searchList = searchTitleList && searchTitleList?.results;
