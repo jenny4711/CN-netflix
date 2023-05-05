@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { Navbar, Container, Form, Button, Nav } from "react-bootstrap";
+import { Navbar, Container, Form, Button, Nav ,NavDropdown} from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../CSS/Navb.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -38,31 +38,37 @@ changeLang()
             src="https://www.edigitalagency.com.au/wp-content/uploads/Netflix-logo-red-black-png.png"
           />
         </Navbar.Brand>
-       
+      
         <Navbar.Toggle aria-controls="navbarScroll" />
         
         <Navbar.Collapse id="navbarScroll">
-        <button className='Navb-lang' onClick={(e)=>changeLang(e)}>{lang === `ko-KR`?'KO':'US'}</button>
-          <Nav
-            className="me-auto my-2 my-lg-0"
-            style={{ maxHeight: "100px" }}
-            navbarScroll
-          >
-            
-            <Link to="/" href="#action1" className="Navb-Home">
+        <Nav defaultActiveKey="/home" as="ul">
+        <Nav.Item as="li" className='Navb-langbtn'>
+    
+        <Nav.Link onClick={(e)=>changeLang(e)} href="#action1" className="Navb-lang">
+        {lang === `ko-KR`?'KO':'US'}
+        </Nav.Link>
+         
+            </Nav.Item>
+            <Nav.Item as="li">
+            <Link to="/" href="#action2" className="Navb-Home">
               Home
             </Link>
-            <Link to="/movies" href="#action2" className="Navb-Movies">
+            </Nav.Item>
+            <Nav.Item as="li">
+            <Link to="/movies" href="#action3" className="Navb-Movies">
               Movies
             </Link>
+            </Nav.Item>
            
           
           </Nav>
+        
           <Form className={navSearch ? "d-flex" : "hide"}>
             <Form.Control
               type="search"
               placeholder="Search"
-              className="me-2"
+              className="me-2 Navb-input"
               aria-label="Search"
               onChange={keywordHandler}
             />
