@@ -54,11 +54,10 @@ justify-content: center;
   justify-content: center;
   background-color: black;
 
-  margin-left: 1rem;
-  margin-top: 2rem;
+
   color:white;
 
-  width:12rem;
+
 
 }
 .genreBtn{
@@ -179,6 +178,14 @@ border-radius: 50%;
    
    
   }
+  .show {
+    
+    margin-bottom: 1.5rem;
+    /* margin-right: 5rem; */
+    /* width: 110%;
+    height: 100%; */
+    align-items: center;
+}
   
  
 }

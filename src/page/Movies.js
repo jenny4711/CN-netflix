@@ -205,7 +205,7 @@ function Movies({ setNavSearch,lang}) {
               <Dropdown.Item href="#/action-2" onClick={handleGenre}>
                 Filter By Genre
               </Dropdown.Item>
-              <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+            
             </Dropdown.Menu>
           </Dropdown>
           <div className={show ? "show" : "hide"}>
