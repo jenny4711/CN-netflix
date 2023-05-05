@@ -14,13 +14,16 @@ const clickCard=(e)=>{
 }
 
   return (
+    <>
+        {item.backdrop_path === null?<div className='RelatedMovies-empty'><img width={100} src='https://www.edigitalagency.com.au/wp-content/uploads/Netflix-logo-red-black-png.png'/></div>:
     <div
     onClick={clickCard}
     className='RelatedMovies'
      style={{backgroundImage:'url('+`https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item?.backdrop_path}`+')'}}>
-      <h3>{item.title}</h3>
+      <h5>{item.title}</h5>
      
-    </div>
+    </div>}
+    </>
   )
 }
 

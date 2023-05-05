@@ -99,6 +99,7 @@
 
   border-bottom: 2px solid white;
 }
+
 @media only screen and (max-width: 768px) {
   .MovieDetail {
     height: 60rem;

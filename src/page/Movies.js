@@ -100,7 +100,7 @@ function Movies({ setNavSearch,lang}) {
   // filter by years
   const handleSliderChange = async () => {
     
-    const filterObj = result.filter(item => {
+    const filterObj = popularMovies?.results.filter(item => {
       
       const itemYear = new Date(item.release_date).getFullYear();
     
