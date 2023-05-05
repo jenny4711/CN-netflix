@@ -210,6 +210,7 @@ function Movies({ setNavSearch,lang}) {
           </Dropdown>
           <div className={show ? "showS" : "hide"}>
             <div className='Movies-slider'>
+            
            <ReactSlider
            className='horizontal-slider'
            thumbClassName='example-thumb'
@@ -225,6 +226,7 @@ function Movies({ setNavSearch,lang}) {
            <h6>From:{value[0]}</h6>
            <h6>To:{value[1]}</h6>
            <button onClick={handleSliderChange}>Click</button>
+           <button className='closeYear' onClick={()=>setShow(false)}>Close</button>
             </div>
           
           </div>
@@ -239,10 +241,14 @@ function Movies({ setNavSearch,lang}) {
                     >
                       {item.name}
                     </button>
+                    
                   </Col>
                 ))}
+               
               </Row>
+              <button className='closeYear' onClick={()=>setGenre(false)}>Close</button>
             </Container>
+          
           </div>
         </div>
         <Container>
