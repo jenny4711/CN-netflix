@@ -72,7 +72,7 @@ background: linear-gradient(90deg, rgba(240,37,8,1) 1%, rgba(18,17,17,1) 85%);
 .Movies-btn{
   display:flex;
 margin-top:1rem;
-width:25rem;
+width:20rem;
 }
 /* .Movies-form{
   width:210px;
@@ -88,12 +88,12 @@ width:25rem;
 }
 
 .Movies-slider{
-  width:50rem;
+  width:20rem;
 
 }
 .horizontal-slider{
     width: 100%;
-    max-width: 500px;
+    max-width: 300px;
     height: 50px;
     border: 1px solid grey;
 }
@@ -166,7 +166,8 @@ border-radius: 50%;
     margin-bottom:1.5rem;
   }
   .Movies-slider{
-    width:15rem;
+    width:25rem;
+    margin-left:1rem;
    
   }
  

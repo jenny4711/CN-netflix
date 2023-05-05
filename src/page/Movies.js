@@ -208,7 +208,7 @@ function Movies({ setNavSearch,lang}) {
             
             </Dropdown.Menu>
           </Dropdown>
-          <div className={show ? "show" : "hide"}>
+          <div className={show ? "showS" : "hide"}>
             <div className='Movies-slider'>
            <ReactSlider
            className='horizontal-slider'
