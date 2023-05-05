@@ -6,7 +6,7 @@ const Banner = ({movie}) => {
     <div 
     className='Banner'
     style={{
-      backgroundImage:"url("+`https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${movie.poster_path}`+")",
+      backgroundImage:"url("+`https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${movie.backdrop_path}`+")",
       backgroundRepeat:"no-repeat",
       // backgroundSize:'cover',
 

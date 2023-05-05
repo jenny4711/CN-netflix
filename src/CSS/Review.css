@@ -1,13 +1,10 @@
 .Review{
  border-bottom: 2px solid white;
-  width:40rem;
-  padding:1rem; 
 }
-
 @media only screen and (max-width:768px){
   .Review{
     
-    width:200px;
+    width:300px;
  
   }
 }
