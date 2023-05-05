@@ -8,7 +8,7 @@ import Badge from "react-bootstrap/Badge";
 import { Container, Row, Col } from "react-bootstrap";
 import "../CSS/MovieDetail.css";
 import Trailer from "./Trailer";
-
+import { animateScroll as scroll } from 'react-scroll';
 
 
 function MovieDetail({ setNavSearch,lang}) {
@@ -31,6 +31,20 @@ function MovieDetail({ setNavSearch,lang}) {
   let nameOfGenres = searchMovie.genres;
   let recomResult = recommendationList.results;
   let videoKey=movieVideoList?.key
+
+function releaseVideo(e){
+  e.preventDefault()
+setOpen((open) => (open === true ? false : true))
+scroll.scrollToBottom()
+
+}
+
+function reviewSection(e){
+  e.preventDefault()
+  setOn((on) => (on === true ? false : true))
+  scroll.scrollTo(900)
+}
+
   useEffect(() => {
     function getList() {
       dispatch(movieAction.searchMovie(sp,lang));
@@ -104,13 +118,14 @@ function MovieDetail({ setNavSearch,lang}) {
         <div className="MovieDetail-btns">
           <button
             className={on ? "reviewBtn-bk" : "reviewBtn"}
-            onClick={() => setOn((on) => (on === true ? false : true))}
+            onClick={reviewSection}
           >
             REVIEW({result?.length})
           </button>
           <button
             className={open ? "relatedBtn-bk" : "relatedBtn"}
-            onClick={() => setOpen((open) => (open === true ? false : true))}
+            onClick={releaseVideo}
+           
           >
             RELATED MOVIES({recomResult?.length})
           </button>

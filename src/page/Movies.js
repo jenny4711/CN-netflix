@@ -9,10 +9,8 @@ import "@lucchev/react-slider/styles.css";
 import "../CSS/Movies.css";
 import Pagination from "react-js-pagination";
 import { useSearchParams } from "react-router-dom";
-// import Slider from "rc-slider";
 import ReactSlider from 'react-slider';
 import { Form, Button } from "react-bootstrap";
-import "rc-slider/assets/index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
@@ -104,7 +102,7 @@ function Movies({ setNavSearch,lang}) {
       
       const itemYear = new Date(item.release_date).getFullYear();
     
-      // console.log(2013 <= itemYear && itemYear <= 2022)
+   
       return value[0] <= itemYear && itemYear <= value[1];
     });
     setResult(filterObj);
