@@ -56,7 +56,7 @@ changeLang()
          {lang === `ko-KR`?'KO':'US'} 
          </Nav.Link> */}
 
-        <Form.Select size="sm" onChange={changeLang} className="Navb-lang">
+        <Form.Select size="sm" htmlSize={1} onChange={changeLang} className="Navb-lang">
           <option>{lang === `ko-KR`?'KO':'US'}</option>
         <option value={`ko-KR`}>KO</option>
         <option value={`en-US`}>US</option>
