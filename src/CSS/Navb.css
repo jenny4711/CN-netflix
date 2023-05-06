@@ -14,13 +14,10 @@
 .form-select{
   background-color: black;
   color:white;
-  width:100%;
+  width:70%;
   border: none;
 }  
- select{
-  background-color: red;
-  width:3px;
-}
+
 
 .navbar-expand-lg .navbar-collapse{
   justify-content:space-between
@@ -56,12 +53,6 @@
     height:2rem;
   }
   
- option{
-    background-color: red;
-    color:white;
-    /* width:50%; */
-    border: none;
-  }  
-  
+ 
   
 }
