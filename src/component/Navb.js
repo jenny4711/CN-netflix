@@ -10,7 +10,14 @@ const Navb = ({ navSearch,setLang,lang}) => {
  
   const navigate = useNavigate();
   const [keyword, setKeyword] = useState("");
-  const changeLang=(e)=> setLang((lang)=>lang===`ko-KR`? `en-US`:`ko-KR`)
+  const changeLang=(event)=>{ 
+    if(event){
+      event.preventDefault();
+      setLang(event.target.value)
+    console.log(event.target.value,'lll')
+    }
+   
+  }
   
   useEffect(()=>{
 changeLang()
@@ -43,11 +50,22 @@ changeLang()
         
         <Navbar.Collapse id="navbarScroll">
         <Nav defaultActiveKey="/home" as="ul">
-        <Nav.Item as="li" className='Navb-langbtn'>
-    
-        <Nav.Link onClick={(e)=>changeLang(e)} href="#action1" className="Navb-lang">
-        {lang === `ko-KR`?'KO':'US'}
-        </Nav.Link>
+          <Nav.Item as="li" className='Navb-langbtn'> 
+{/*     
+         <Nav.Link  href="#action1" className="Navb-lang"> 
+         {lang === `ko-KR`?'KO':'US'} 
+         </Nav.Link> */}
+
+        <Form.Select size="sm" onChange={changeLang} className="Navb-lang">
+          <option>{lang === `ko-KR`?'KO':'US'}</option>
+        <option value={`ko-KR`}>KO</option>
+        <option value={`en-US`}>US</option>
+      </Form.Select>
+
+
+
+
+
          
             </Nav.Item>
             <Nav.Item as="li">
