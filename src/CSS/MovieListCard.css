@@ -34,21 +34,9 @@
   .container{
     width:100vw;
   }
-  .MovieListCard{
-    display:flex;
-    justify-content: center;
-    text-align: center;
-    background-size:340px 480px;
-  }
-  .MovieListCard,.MovieListCard-info{
-    width:350px;
-    height:400px;
-  }
-  .MovieListCard-info{
-    width:100vw;
-    align-items: center;
-    margin-right:2rem;
-  }
+  
+  
+  
   .col-lg-4{
     display:flex;
     justify-content: center;
