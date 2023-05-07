@@ -115,7 +115,7 @@ function searchMovie(searchId,lang){
       let recommend=recommendationList.data
       //let searchTitle=searchByTitle.data
      
-    console.log(movieVideoList,'oooooooooooooo')
+    console.log(review,'oooooooooooooo')
 
       dispatch(movieActions.getSearchMovies({search,genre,review,movieVideo,recommend}))
 

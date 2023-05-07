@@ -19,7 +19,7 @@ function MovieDetail({ setNavSearch,lang}) {
   const { searchMovie, reviewList, recommendationList, movieVideoList } =
     useSelector((state) => state.movies);
     setNavSearch(false);
-   console.log(movieVideoList,'vl')
+
     // adults img
   const under18 =
     "https://st2.depositphotos.com/1431107/11748/v/450/depositphotos_117484062-stock-illustration-under-18-year-rubber-stamp.jpg";
@@ -41,8 +41,11 @@ scroll.scrollToBottom()
 
 function reviewSection(e){
   e.preventDefault()
-  setOn((on) => (on === true ? false : true))
-  scroll.scrollTo(900)
+  
+    setOn((on) => (on === true ? false : true))
+    scroll.scrollTo(900)
+  
+  
 }
 
   useEffect(() => {
@@ -102,10 +105,10 @@ function reviewSection(e){
               {searchMovie?.release_date}
             </p>
             <p>
-              <Badge bg="danger">Budget</Badge> ${searchMovie?.budget}
+              <Badge bg="danger">Budget</Badge> ${searchMovie.budget !== undefined? searchMovie.budget.toLocaleString():'...'}
             </p>
             <p>
-              <Badge bg="danger">Revenue</Badge> ${searchMovie?.revenue}
+              <Badge bg="danger">Revenue</Badge> ${searchMovie?.revenue !== undefined? searchMovie.revenue.toLocaleString():'...'}
             </p>
           </div>
           <div className="MovieDetail-trailer">
@@ -135,8 +138,10 @@ function reviewSection(e){
 
         <div className={on ? "review-all" : "hide"}>
           {result?.map((item) => (
+          
             <div>
               <Review item={item} />
+              {console.log(item)}
             </div>
           ))}
         </div>
