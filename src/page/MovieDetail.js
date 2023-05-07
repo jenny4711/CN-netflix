@@ -19,7 +19,7 @@ function MovieDetail({ setNavSearch,lang}) {
   const { searchMovie, reviewList, recommendationList, movieVideoList } =
     useSelector((state) => state.movies);
     setNavSearch(false);
-
+   console.log(movieVideoList,'vl')
     // adults img
   const under18 =
     "https://st2.depositphotos.com/1431107/11748/v/450/depositphotos_117484062-stock-illustration-under-18-year-rubber-stamp.jpg";
@@ -109,7 +109,9 @@ function reviewSection(e){
             </p>
           </div>
           <div className="MovieDetail-trailer">
-            <Trailer videoId={videoKey} />
+            {videoKey === undefined?<h5 style={{color:'gray'}}>No Trailer</h5>:<Trailer videoId={videoKey} />}
+           
+            
           </div>
         </div>
       </div>
