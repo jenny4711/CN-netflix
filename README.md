@@ -1,6 +1,6 @@
 <h1>CN-Netflix</h1>
 <h3>Go to Web: https://jovial-pudding-d60ab1.netlify.app </h3>
-  <img width='70%' src="https://github.com/jenny4711/portfolio-site/blob/main/img/projects/netflixC.png"/>
+                <img width='70%' src="https://github.com/jenny4711/portfolio-site/blob/main/img/projects/netflixC.png"/>
   <p>Based on Netflix, you can separate and view information on the latest movies and popular movies. It allows filtering and sorting options.</p>
   <ul>
   <li>Latest Movies:Access information specifically about the most recent movie release.</li>
